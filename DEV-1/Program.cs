@@ -16,7 +16,6 @@ namespace Dev1
 			{
 				MaximuNumberOfUnequalConsecutive EntryPointObject = new MaximuNumberOfUnequalConsecutive();
 				string inputString = args.ArrayToString(); // Form string from arguments array
-
 				Console.WriteLine(EntryPointObject.SearchLengthofUnequalSymbol(inputString));
 			}
 			else

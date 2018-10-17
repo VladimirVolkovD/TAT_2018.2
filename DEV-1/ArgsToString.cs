@@ -2,7 +2,6 @@
 
 namespace Dev1
 {
-
     static class ArgsToString
     {
         /// <summary>

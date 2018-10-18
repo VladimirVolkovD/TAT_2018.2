@@ -1,8 +1,12 @@
 ﻿using System.Text;
 
+
 namespace Dev1
 {
-    static class ArgsToString
+	/// <summary>
+	/// Arguments to string.
+	/// </summary>
+	static class ArgsToString
     {
         /// <summary>
         /// The ArgsToString class that forms a string from the command line arguments

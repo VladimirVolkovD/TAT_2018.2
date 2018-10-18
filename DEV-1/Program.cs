@@ -33,27 +33,27 @@ namespace Dev1
 		/// <returns>Maximum number of unequal consecutive symbol in a string</returns>
 		int SearchLengthofUnequalSymbol(String stringArgument)
 		{
-			string buffer = ""; //Temporal storage for subsequences
-			int MaximumSubsequenceLength = 0;
+			string buffer = String.Empty; //Temporal storage for subsequences
+			int maximumUniqueCharsCount = 0;
 
 			for (int i = 0; i < stringArgument.Length; i++)
 			{
 				if (buffer.Contains(stringArgument[i]))
 				{
 					i -= (buffer.Length - buffer.LastIndexOf(stringArgument[i]));
-					buffer = "";
+					buffer = String.Empty;
 				}
 				else
 				{
 					buffer = buffer + stringArgument[i];
-					if (MaximumSubsequenceLength < buffer.Length)
+					if (maximumUniqueCharsCount < buffer.Length)
 					{
-						MaximumSubsequenceLength = buffer.Length;
+						maximumUniqueCharsCount = buffer.Length;
 					}
 				}
 			}
 
-			return MaximumSubsequenceLength;
+			return maximumUniqueCharsCount;
 		}
 	}
 }

@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgsToString.cs" />
-    <Compile Include="CyrillicLatinTransliteration.cs" />
+    <Compile Include="AutoDecideTransliteration.cs" />
     <Compile Include="Transliteration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

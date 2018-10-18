@@ -5,16 +5,30 @@ using System.Text;
 
 namespace DEV_2
 {
-    class CyrillicLatinTransliteration
+    /// <summary>
+	/// The AutoDecideTransliteration class accepts a string in Russian (or in Latin) language,
+    /// converts the string to lower case, and transliterate to Latin (Russian) language
+	/// </summary>
+    class AutoDecideTransliteration
     {
-        public  void autoTransliteration(ref String stringArgument)
+        /// <summary> 
+        /// Method autoTransliteration
+        /// function for determine from which language to which we will transliteration the string
+        /// and catches exceptions
+        /// </summary> 
+        /// <param name="stringArgument">String, which was inputed</param>
+        public void AutoTransliteration(ref String stringArgument)
         {
-            string check = String.Copy(stringArgument);
-            String.Concat(check.OrderBy(c => c));
-
-
-            if (Enumerable.Range(1072, 1103).Contains(check[0]) && (Enumerable.Range(1072, 1103).Contains(check[check.Length - 1]))) CyrillicToLatinTransliteration(ref stringArgument);
-            else if (Enumerable.Range(97, 122).Contains(check[0]) && (Enumerable.Range(97, 122).Contains(check[check.Length - 1]))) LatinToCyrillicTransliteration(ref stringArgument);
+            string checkString = String.Copy(stringArgument);
+            String.Concat(checkString.OrderBy(c => c));
+            if (Enumerable.Range(1072, 1103).Contains(checkString[0]) && (Enumerable.Range(1072, 1103).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
+            {
+                CyrillicToLatinTransliteration(ref stringArgument);
+            }
+            else if (Enumerable.Range(97, 122).Contains(checkString[0]) && (Enumerable.Range(97, 122).Contains(checkString[checkString.Length - 1])))//check for Latin symbol
+            {
+                LatinToCyrillicTransliteration(ref stringArgument);
+            }
             else
             {
                 Console.WriteLine("The string must contain only Russian or English letters");
@@ -22,7 +36,11 @@ namespace DEV_2
             }
         }
 
-
+        /// <summary> 
+		/// Method CyrillicToLatinTransliteration
+		/// Function for transliteration string from cyrillic to latin
+		/// </summary> 
+		/// <param name="stringArgument">String, which was inputed</param>
         static void CyrillicToLatinTransliteration(ref String stringArgument)
         {
             StringBuilder transliteratedString = new StringBuilder();
@@ -73,6 +91,11 @@ namespace DEV_2
             stringArgument = transliteratedString.ToString();
         }
 
+        /// <summary> 
+		/// Method LatinToCyrillicTransliteration
+		/// Function for transliteration string from latin to cyrillic
+		/// </summary> 
+		/// <param name="stringArgument">String, which was inputed</param>
         static void LatinToCyrillicTransliteration(ref String stringArgument)
         {
             StringBuilder transliteratedString = new StringBuilder();

@@ -20,7 +20,7 @@ namespace DEV_2
         public void AutoTransliteration(ref String stringArgument)
         {
             string checkString = String.Copy(stringArgument);
-            String.Concat(checkString.OrderBy(c => c));
+            checkString = String.Concat(checkString.OrderBy(c => c));
             if (Enumerable.Range(1072, 1103).Contains(checkString[0]) && (Enumerable.Range(1072, 1103).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
             {
                 CyrillicToLatinTransliteration(ref stringArgument);

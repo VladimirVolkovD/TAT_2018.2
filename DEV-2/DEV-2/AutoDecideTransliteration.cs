@@ -5,10 +5,10 @@ using System.Text;
 
 namespace DEV_2
 {
-    	/// <summary>
-	/// The AutoDecideTransliteration class accepts a string in Russian (or in Latin) language,
-   	/// converts the string to lower case, and transliterate to Latin (Russian) language
-	/// </summary>
+    /// <summary>
+    /// The AutoDecideTransliteration class accepts a string in Russian (or in Latin) language,
+    /// converts the string to lower case, and transliterate to Latin (Russian) language
+    /// </summary>
     class AutoDecideTransliteration
     {
         /// <summary> 
@@ -37,10 +37,10 @@ namespace DEV_2
         }
 
         /// <summary> 
-		/// Method CyrillicToLatinTransliteration
-		/// Function for transliteration string from cyrillic to latin
-		/// </summary> 
-		/// <param name="stringArgument">String, which was inputed</param>
+	/// Method CyrillicToLatinTransliteration
+	/// Function for transliteration string from cyrillic to latin
+	/// </summary> 
+	/// <param name="stringArgument">String, which was inputed</param>
         static void CyrillicToLatinTransliteration(ref String stringArgument)
         {
             StringBuilder transliteratedString = new StringBuilder();
@@ -92,10 +92,10 @@ namespace DEV_2
         }
 
         /// <summary> 
-		/// Method LatinToCyrillicTransliteration
-		/// Function for transliteration string from latin to cyrillic
-		/// </summary> 
-		/// <param name="stringArgument">String, which was inputed</param>
+	/// Method LatinToCyrillicTransliteration
+	/// Function for transliteration string from latin to cyrillic
+	/// </summary> 
+	/// <param name="stringArgument">String, which was inputed</param>
         static void LatinToCyrillicTransliteration(ref String stringArgument)
         {
             StringBuilder transliteratedString = new StringBuilder();

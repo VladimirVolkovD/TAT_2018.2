@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace DEV_2
@@ -17,12 +17,24 @@ namespace DEV_2
             StringBuilder concatenatedString = new StringBuilder();
             String returnString = String.Empty;
 
-            foreach (string i in args)
+            if (args.Length == 1)
             {
-                concatenatedString.Append(i + " ");
+                foreach (string i in args)
+                {
+                    concatenatedString.Append(i);
+                }
             }
+            else
+            {
+                foreach (string i in args)
+                {
+                    concatenatedString.Append(i + " ");
+                }
 
-            concatenatedString.Remove(concatenatedString.Length - 1, 1); // Delete last space bar
+                concatenatedString.Remove(concatenatedString.Length - 1, 1); // Delete last space bar
+
+            }
+            
             returnString = concatenatedString.ToString();   
 
             return returnString.ToLower();

@@ -37,7 +37,7 @@ namespace DEV_2
             }
         }
 
-        /// <summary> 
+	/// <summary> 
 	/// Method CyrillicToLatinTransliteration
 	/// Function for transliteration string from cyrillic to latin
 	/// </summary> 

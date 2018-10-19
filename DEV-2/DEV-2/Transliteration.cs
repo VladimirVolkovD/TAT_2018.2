@@ -4,9 +4,9 @@ using System.Text;
 namespace DEV_2
 {
     /// <summary>
-	/// The Transliteration class accepts a string in Russian (or in Latin) language
+    /// The Transliteration class accepts a string in Russian (or in Latin) language
     /// and translates the string into the required language
-	/// </summary>
+    /// </summary>
     class Transliteration
     {
         static void Main(string[] args)

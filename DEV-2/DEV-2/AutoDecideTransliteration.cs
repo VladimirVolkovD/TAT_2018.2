@@ -92,7 +92,7 @@ namespace DEV_2
             stringArgument = transliteratedString.ToString();
         }
 
-        /// <summary> 
+	/// <summary> 
 	/// Method LatinToCyrillicTransliteration
 	/// Function for transliteration string from latin to cyrillic
 	/// </summary> 

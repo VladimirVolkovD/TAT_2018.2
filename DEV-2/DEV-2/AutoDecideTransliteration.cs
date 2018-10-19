@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DEV_2
 {
-    /// <summary>
+    	/// <summary>
 	/// The AutoDecideTransliteration class accepts a string in Russian (or in Latin) language,
-    /// converts the string to lower case, and transliterate to Latin (Russian) language
+   	/// converts the string to lower case, and transliterate to Latin (Russian) language
 	/// </summary>
     class AutoDecideTransliteration
     {

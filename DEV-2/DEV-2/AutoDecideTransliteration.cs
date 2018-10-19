@@ -21,6 +21,7 @@ namespace DEV_2
         {
             string checkString = String.Copy(stringArgument);
             checkString = String.Concat(checkString.OrderBy(c => c));
+            checkString = checkString.Replace(" ", string.Empty);
             if (Enumerable.Range(1072, 1103).Contains(checkString[0]) && (Enumerable.Range(1072, 1103).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
             {
                 CyrillicToLatinTransliteration(ref stringArgument);

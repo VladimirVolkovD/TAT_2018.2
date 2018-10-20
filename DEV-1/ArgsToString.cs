@@ -8,7 +8,7 @@ namespace Dev1
 	static class ArgsToString
     {
         /// <summary>
-        /// The ArgsToString class that forms a string from the command line arguments
+        /// The ArgsToString method forms a string from the command line arguments
         /// </summary>
         public static string ArrayToString(this string[] args)
         {

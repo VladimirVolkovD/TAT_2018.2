@@ -20,7 +20,6 @@ namespace DEV_2
         public void AutoTransliteration(ref String stringArgument)
         {
             stringArgument = stringArgument.ToLower();
-            Console.WriteLine("your transliterated string: " + stringArgument);
             string checkString = String.Copy(stringArgument);
             checkString = String.Concat(checkString.OrderBy(c => c));
             checkString = checkString.Replace(" ", string.Empty);

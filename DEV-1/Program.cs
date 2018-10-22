@@ -12,18 +12,20 @@ namespace Dev1
 	{
 		static void Main(string[] args)
 		{
-			if (args.Length != 0)// Checking the condition for the argument
-			{
-				MaximuNumberOfUnequalConsecutive EntryPointObject = new MaximuNumberOfUnequalConsecutive();
-				string inputString = args.ArrayToString(); // Form string from arguments array
-				Console.WriteLine(EntryPointObject.SearchLengthofUnequalSymbol(inputString));
-			}
-			else
-			{
-				Console.WriteLine("Exception message: wrong arguments number.");
-				return;
-			}
-		}
+            try
+            {
+                if (args[0].Length == 0)
+                {
+                    throw new Exception("Incorrect of argument");
+                }
+                MaximuNumberOfUnequalConsecutive EntryPointObject = new MaximuNumberOfUnequalConsecutive();
+                Console.WriteLine(EntryPointObject.SearchLengthofUnequalSymbol(args[0]));
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Error: " + error.Message);
+            }
+        }
 
 		/// <summary> 
 		/// Method SearchLengthofUnequalSymbol

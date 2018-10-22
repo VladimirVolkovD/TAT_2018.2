@@ -82,7 +82,9 @@ namespace DEV_2
                 ["ь"] = String.Empty,
                 ["э"] = "e",
                 ["ю"] = "yu",
-                ["я"] = "ya"
+                ["я"] = "ya",
+		["ѐ"] = "ya"
+		    
 
             };
 

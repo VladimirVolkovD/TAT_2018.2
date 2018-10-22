@@ -19,14 +19,16 @@ namespace DEV_2
         /// <param name="stringArgument">String, which was inputed</param>
         public void AutoTransliteration(ref String stringArgument)
         {
+            stringArgument = stringArgument.ToLower();
+            Console.WriteLine("your transliterated string: " + stringArgument);
             string checkString = String.Copy(stringArgument);
             checkString = String.Concat(checkString.OrderBy(c => c));
             checkString = checkString.Replace(" ", string.Empty);
-            if (Enumerable.Range(1072, 1103).Contains(checkString[0]) && (Enumerable.Range(1072, 1103).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
+            if (Enumerable.Range(1072, 34).Contains(checkString[0]) && (Enumerable.Range(1072, 34).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
             {
                 CyrillicToLatinTransliteration(ref stringArgument);
             }
-            else if (Enumerable.Range(97, 122).Contains(checkString[0]) && (Enumerable.Range(97, 122).Contains(checkString[checkString.Length - 1])))//check for Latin symbol
+            else if (Enumerable.Range(97, 26).Contains(checkString[0]) && (Enumerable.Range(97, 26).Contains(checkString[checkString.Length - 1])))//check for Latin symbol
             {
                 LatinToCyrillicTransliteration(ref stringArgument);
             }
@@ -132,6 +134,10 @@ namespace DEV_2
                 ["u"] = "у",
                 ["f"] = "ф",
                 ["y"] = "ы",
+                ["j"] = String.Empty,
+                ["h"] = String.Empty,
+                ["w"] = String.Empty,
+                ["q"] = String.Empty
             };
 
             foreach (string i in cyrillicToLatinDictionary.Keys)

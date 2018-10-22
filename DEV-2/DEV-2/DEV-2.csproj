@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArgsToString.cs" />
     <Compile Include="AutoDecideTransliteration.cs" />
     <Compile Include="Transliteration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

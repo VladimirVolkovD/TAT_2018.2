@@ -11,12 +11,23 @@ namespace DEV_2
     {
         static void Main(string[] args)
         {
-               Console.OutputEncoding = Encoding.UTF8;//for adequate display Cyrillic
-               Transliteration EntryPointObject = new Transliteration();
-               string inputString = args.ArrayToString(); // Form string from arguments array 
-               AutoDecideTransliteration entryTransliteration = new AutoDecideTransliteration();
-               entryTransliteration.AutoTransliteration(ref inputString);
-               Console.WriteLine("your transliterated string: " + inputString); 
+            try
+            {
+                if (args[0].Length == 0)
+                {
+                    throw new Exception("Incorrect of argument");
+                }
+                Console.OutputEncoding = Encoding.UTF8;//for adequate display Cyrillic
+                Transliteration EntryPointObject = new Transliteration();
+                string inputString = args[0]; // Form string from arguments array 
+                AutoDecideTransliteration entryTransliteration = new AutoDecideTransliteration();
+                entryTransliteration.AutoTransliteration(ref inputString);
+                Console.WriteLine("your transliterated string: " + inputString);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Error: " + error.Message);
+            }
         }       
     }
 }

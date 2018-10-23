@@ -15,18 +15,17 @@ namespace DEV_3
         /// <returns>Value In New System</returns>
         public string DecimalToOtherNumeralSystem(int number, int newBase)
         {            
-            StringBuilder valueInNewSystem = new StringBuilder();
-            int numberToAdd;
+            StringBuilder valueInNewSystem = new StringBuilder();            
             do
             {
+                int numberToAdd;
                 numberToAdd = number % newBase;
                 valueInNewSystem.Append(FigureConverter(numberToAdd));
                 number = number / newBase;
 
             } while (0 != number);
-            string ConvertedString;
-            ConvertedString = valueInNewSystem.ToString();
-            return ReverseString(ConvertedString);
+            string ConvertedString;             
+            return ReverseString(valueInNewSystem.ToString());
         }
 
         /// <summary>

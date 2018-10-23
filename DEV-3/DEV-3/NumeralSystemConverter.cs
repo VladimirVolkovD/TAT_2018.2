@@ -24,7 +24,7 @@ namespace DEV_3
                 number = number / newBase;
 
             } while (0 != number);
-            string ConvertedString;             
+            
             return ReverseString(valueInNewSystem.ToString());
         }
 

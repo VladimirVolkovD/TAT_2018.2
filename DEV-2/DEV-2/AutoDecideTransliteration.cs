@@ -33,8 +33,7 @@ namespace DEV_2
             }
             else
             {
-                Console.WriteLine("The string must contain only Russian or English letters");
-                System.Environment.Exit(0);
+                throw new Exception("The string must contain only Russian or English letters");               
             }
         }
 

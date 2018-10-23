@@ -3,10 +3,10 @@ using System;
 namespace DEV_3
 {
     /// <summary> 
-    /// EntryPoint accept from the command line two arguments
+    /// Converter accept from the command line two arguments
     /// and convert number (1 argument) in the new numeral system (2 argument)
     /// </summary> 
-    class EntryPoint
+    class Converter
     {       
         static void Main(string[] args)
         {

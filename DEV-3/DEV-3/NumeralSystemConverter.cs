@@ -22,7 +22,6 @@ namespace DEV_3
                 numberToAdd = number % newBase;
                 valueInNewSystem.Append(FigureConverter(numberToAdd));
                 number = number / newBase;
-
             } while (0 != number);
             
             return ReverseString(valueInNewSystem.ToString());

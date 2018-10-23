@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DEV_3
 {
@@ -13,20 +13,13 @@ namespace DEV_3
             try
             {
                 int number = int.Parse(args[0]);
-                int newBase = int.Parse(args[1]);                
-                if (newBase < 2 || newBase > 20)
+                int newBaseOfNumberSystem = int.Parse(args[1]);                
+                if (newBaseOfNumberSystem < 2 || newBaseOfNumberSystem > 20)
                 {
                     throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
                 }                
                 NumeralSystemConverter EntryPointObject = new NumeralSystemConverter();
-                if (number >= 0)
-                {
-                    Console.WriteLine(number + " in the " + newBase + " numeral system = " + EntryPointObject.DecimalToOtherNumeralSystem(number, newBase));
-                }
-                else
-                {
-                    Console.WriteLine(number + " in the " + newBase + " numeral system =  -" + EntryPointObject.DecimalToOtherNumeralSystem(number, newBase));
-                }
+                Console.WriteLine(number + " in the " + newBaseOfNumberSystem + " numeral system = " + Math.Sign(number) + EntryPointObject.DecimalToOtherNumeralSystem(number, newBaseOfNumberSystem));                
             }
             catch (FormatException)
             {

@@ -83,8 +83,6 @@ namespace DEV_2
                 ["ю"] = "yu",
                 ["я"] = "ya",
                 ["ѐ"] = String.Empty
-		    
-
             };
 
             foreach (string i in cyrillicToLatinDictionary.Keys)

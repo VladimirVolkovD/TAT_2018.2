@@ -3,7 +3,8 @@ using System;
 namespace DEV_3
 {
     /// <summary> 
-    /// Converter accept from the command line two arguments
+    /// Decimal number converter to other numeral systems
+    /// accept from the command line two arguments
     /// and convert number (1 argument) in the new numeral system (2 argument)
     /// </summary> 
     class Converter
@@ -18,8 +19,9 @@ namespace DEV_3
                 {
                     throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
                 }                
-                NumeralSystemConverter EntryPointObject = new NumeralSystemConverter();
-                Console.WriteLine(number + " in the " + newBaseOfNumberSystem + " numeral system = " + Math.Sign(number) + EntryPointObject.DecimalToOtherNumeralSystem(number, newBaseOfNumberSystem));                
+                NumeralSystemConverter convertedNumber = new NumeralSystemConverter(number, newBaseOfNumberSystem);
+                convertedNumber.DecimalToOtherNumeralSystem();
+                convertedNumber.writeCovertedNumber();
             }
             catch (FormatException)
             {

@@ -2,43 +2,57 @@
 using System.Text;
 
 namespace DEV_3
-{
+{   
     /// <summary> 
     /// This class converts decimal number in other numeral system
     /// </summary>
     class NumeralSystemConverter
     {
+        int number;
+        int newBase;
+        int sign;
+        string covertedNumber;
+        const string possibleValues = "0123456789ABCDEFGHIJ";
+
+        /// <summary>
+        /// Class constructor for NumeralSystemConverter
+        /// </summary>
+        /// <param name="number">number</param>
+        /// <param name="newBase">new base of numeral system</param>
+        public NumeralSystemConverter(int number,int newBase)
+        {
+            sign = Math.Sign(number);
+            this.number =  Math.Abs(number);
+            this.newBase = newBase;
+        }
+
         /// <summary> 
         /// Method DecimalToOtherNumeralSystem
         /// A method that creates a string that is a representation of a number in the new numeral system
         /// </summary> 
         /// <returns>Value In New System</returns>
-        public string DecimalToOtherNumeralSystem(int number, int newBase)
+        public void DecimalToOtherNumeralSystem()
         {            
             StringBuilder valueInNewSystem = new StringBuilder();            
             do
             {
-                int numberToAdd;
-                numberToAdd = number % newBase;
-                valueInNewSystem.Append(FigureConverter(numberToAdd));
+                int numberToAdd = number % newBase;
                 number = number / newBase;
-            } while (0 != number);
-            
-            return ReverseString(valueInNewSystem.ToString());
-        }
+                if (numberToAdd < 10)
+                {
+                    char tempCharSymbol = (char)(numberToAdd + '0');
+                    valueInNewSystem.Append(tempCharSymbol.ToString());
+                }
+                else 
+                {
+                    char tempCharSymbol = (char)('A' + numberToAdd - 10);
+                    valueInNewSystem.Append(tempCharSymbol.ToString());
+                }
 
-        /// <summary>
-        /// Converts decimal numeral to new numeral  numeral system
-        /// </summary>
-        /// <param name="numbertForTranslation"></param>
-        /// <returns></returns>
-        private string FigureConverter(int numbertForTranslation)
-        {
-            char figureInNewSystem;
-            string possibleValues = "0123456789ABCDEFGHIJ";
-            figureInNewSystem = possibleValues[Math.Abs(numbertForTranslation)];
-            return Convert.ToString(figureInNewSystem);
-        }
+            } while (0 != number);
+
+            covertedNumber = ReverseString(valueInNewSystem.ToString());
+        }       
 
         /// <summary>
         /// Reverses the order of the elements in a  string
@@ -50,6 +64,21 @@ namespace DEV_3
             char[] reversedString = stringForReverse.ToCharArray();
             Array.Reverse(reversedString);
             return new string(reversedString);
-        }        
+        }
+
+        /// <summary>
+        /// Method depending on the sign of number correctly displays the converted number
+        /// </summary>
+        public void writeCovertedNumber()
+        {
+            if (sign != 1)
+            {
+                Console.WriteLine(number + " in the " + newBase + " numeral system =  -" + covertedNumber);
+            }
+            else
+            {
+                Console.WriteLine(number + " in the " + newBase + " numeral system = " + covertedNumber);
+            }
+        }
     }
 }

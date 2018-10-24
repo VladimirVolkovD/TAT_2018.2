@@ -14,7 +14,7 @@ namespace DEV_3
         string covertedNumber;
         
         /// <summary>
-        /// Class constructor for NumeralSystemConverter
+        /// Constructor class for NumeralSystemConverter
         /// </summary>
         /// <param name="number">number</param>
         /// <param name="newBase">new base of numeral system</param>

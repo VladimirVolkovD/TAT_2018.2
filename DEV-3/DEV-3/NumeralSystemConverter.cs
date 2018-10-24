@@ -12,8 +12,7 @@ namespace DEV_3
         int newBase;
         int sign;
         string covertedNumber;
-        const string possibleValues = "0123456789ABCDEFGHIJ";
-
+        
         /// <summary>
         /// Class constructor for NumeralSystemConverter
         /// </summary>

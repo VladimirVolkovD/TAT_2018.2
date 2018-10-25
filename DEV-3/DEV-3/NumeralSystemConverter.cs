@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace DEV_3
@@ -8,13 +8,13 @@ namespace DEV_3
     /// </summary>
     class NumeralSystemConverter
     {
-        int number;
-        int newBase;
-        int sign;
-        string covertedNumber;
-        
+        public int number;
+        public int newBase;
+        public int sign;
+        public string covertedNumber;       
+
         /// <summary>
-        /// Constructor class for NumeralSystemConverter
+        /// Class constructor for NumeralSystemConverter
         /// </summary>
         /// <param name="number">number</param>
         /// <param name="newBase">new base of numeral system</param>
@@ -63,21 +63,6 @@ namespace DEV_3
             char[] reversedString = stringForReverse.ToCharArray();
             Array.Reverse(reversedString);
             return new string(reversedString);
-        }
-
-        /// <summary>
-        /// Method depending on the sign of number correctly displays the converted number
-        /// </summary>
-        public void writeCovertedNumber()
-        {
-            if (sign != 1)
-            {
-                Console.WriteLine(number + " in the " + newBase + " numeral system =  -" + covertedNumber);
-            }
-            else
-            {
-                Console.WriteLine(number + " in the " + newBase + " numeral system = " + covertedNumber);
-            }
-        }
+        }  
     }
 }

@@ -8,20 +8,20 @@ namespace DEV_3
     /// and convert number (1 argument) in the new numeral system (2 argument)
     /// </summary> 
     class Converter
-    {       
+    {
         static void Main(string[] args)
         {
             try
             {
                 int number = int.Parse(args[0]);
-                int newBaseOfNumberSystem = int.Parse(args[1]);                
+                int newBaseOfNumberSystem = int.Parse(args[1]);
                 if (newBaseOfNumberSystem < 2 || newBaseOfNumberSystem > 20)
                 {
                     throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
-                }                
+                }
                 NumeralSystemConverter convertedNumber = new NumeralSystemConverter(number, newBaseOfNumberSystem);
                 convertedNumber.DecimalToOtherNumeralSystem();
-                convertedNumber.writeCovertedNumber();
+                writeCovertedNumber(convertedNumber, number);
             }
             catch (FormatException)
             {
@@ -34,7 +34,22 @@ namespace DEV_3
             catch (Exception ex)
             {
                 Console.WriteLine("Exception message: " + ex.Message);
-            }            
+            }
+        }
+
+        /// <summary>
+        /// Method depending on the sign of number correctly displays the converted number
+        /// </summary>
+        static void writeCovertedNumber(NumeralSystemConverter convertedNumber,int number)
+        {
+            if (convertedNumber.sign != 1)
+            {
+                Console.WriteLine(number + " in the " + convertedNumber.newBase + " numeral system =  -" + convertedNumber.covertedNumber);
+            }
+            else
+            {
+                Console.WriteLine(number + " in the " + convertedNumber.newBase + " numeral system = " + convertedNumber.covertedNumber);
+            }
         }
     }
 }

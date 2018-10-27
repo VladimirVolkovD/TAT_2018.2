@@ -96,6 +96,7 @@ namespace Stack
             {
                 T returnableElement = StackArr[actualSize - 1];
                 StackArr[actualSize - 1] = default(T);
+                actualSize--;
                 return returnableElement;
             }
             else

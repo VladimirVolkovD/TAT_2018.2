@@ -1,20 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Stack
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            
-            
-            MyStack<int> stack = new MyStack<int>();
-            stack.Pop();
-            Console.ReadLine();
+            try
+            {
+                MyStack<int> stack = new MyStack<int>();
+                stack.Pop();
+                stack.Push(1);
+                stack.Push(2);
+                stack.Push(3);
+                int i = stack.Pop();
+                Console.WriteLine("pop: " + i);
+                Console.WriteLine("Headr: " + stack.GetHead());
+                Console.ReadLine();
+            }
+            catch (Exception error)
+            {
+                Console.Write("Error: " + error.Message);
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Stack
     /// collection of instances of the same specified type.
     /// </summary>
     /// <typeparam name="T">Generic data type</typeparam>
-    class MyStack <T>
+    class MyStack<T>
     {
         private int maxSize;
         private int actualSize;
@@ -18,8 +18,9 @@ namespace Stack
         /// </summary>
         public MyStack()
         {
-            actualSize = 0 ;
-            maxSize = 0 ;
+            StackArr = new T[1];
+            actualSize = 0;
+            maxSize = 1;
         }
 
         /// <summary>
@@ -32,35 +33,38 @@ namespace Stack
             actualSize = initialCapacity;
             maxSize = initialCapacity;
         }
-        
+
         /// <summary>
         /// Resizes stack to new capacity  
         /// </summary>
         /// <param name="newCapacity">Value of new capacity </param>
         public void Resize(int newCapacity)
-        {            
+        {
             Array.Resize(ref StackArr, newCapacity);
-            actualSize = newCapacity;
-            if (newCapacity > maxSize) maxSize = newCapacity;             
+            maxSize = newCapacity;
+            if (newCapacity < actualSize)
+            {
+                actualSize = newCapacity;
+            }
         }
-        
+
         /// <summary>
         /// Inserts an object at the top of the stack.
         /// </summary>
         /// <param name="newValue">The value of the new element for add</param>
-        void Push(T newValue)
+        public void Push(T newValue)
         {
-            if (maxSize == actualSize)
+            if ((maxSize == actualSize) && (maxSize != 0))
             {
                 Array.Resize(ref StackArr, StackArr.Length + 1);
-                StackArr[StackArr.Length + 1] = newValue;
-                actualSize = StackArr.Length + 1;
-                maxSize = StackArr.Length + 1;                
-                System.Console.Write("stack size was increased");
+                StackArr[StackArr.Length - 1] = newValue;
+                actualSize = StackArr.Length;
+                maxSize = StackArr.Length;
+                System.Console.WriteLine("stack size was increased");
             }
             else
             {
-                StackArr[actualSize + 1] = newValue;
+                StackArr[actualSize] = newValue;
                 actualSize++;
             }
         }
@@ -74,12 +78,12 @@ namespace Stack
         /// </returns>
         public T GetHead()
         {
-            if(StackArr != null)
+            if (StackArr != null)
             {
-                return StackArr[StackArr.Length-1];
+                return StackArr[StackArr.Length - 1];
             }
 
-            return default(T);                
+            return default(T);
         }
 
         /// <summary>
@@ -92,12 +96,11 @@ namespace Stack
             {
                 T returnableElement = StackArr[actualSize - 1];
                 StackArr[actualSize - 1] = default(T);
-                System.Console.Write(returnableElement);
                 return returnableElement;
             }
             else
             {
-                System.Console.Write("Stack is empty");
+                System.Console.WriteLine("Stack is empty");
                 return default(T);
             }
         }

@@ -1,23 +1,53 @@
 ﻿using System;
 
 namespace Car
-{ 
+{
+    /// <summary>
+    /// MyList class represents  list of objects.
+    /// Provides methods to search,  and manipulate list.
+    /// </summary>
     class MyList
     {
+        /// <summary>
+        /// Store for the first element of list
+        /// </summary>
         private Node head;
 
+        /// <summary>
+        /// Initialize new list without element
+        /// </summary>
         public MyList()
         {
             Node headNode = new Node();
             head = headNode;
         }
 
+        /// <summary>
+        /// Initialize new list with head element
+        /// </summary>
+        /// <param name="headCar">Object for adding in head element of list</param>
         public MyList(Car headCar)
         {
             Node headNode = new Node(headCar);
             head = headNode;
         }
-        
+
+        /// <summary>
+        ///  Add new element in head of list
+        /// </summary>
+        /// <param name="newCar">Object for adding in head element of list</param>
+        public void AddHead(Car newCar)
+        {
+            Node currentNode = new Node(newCar);
+            currentNode.nextCar = head;
+            head.previous = currentNode;
+            head = currentNode;
+        }
+
+        /// <summary>
+        /// Add new element in list
+        /// </summary>
+        /// <param name="newCar">Object for adding in list</param>
         public void Add(Car newCar)
         {
             if (head.Car == null)
@@ -38,14 +68,11 @@ namespace Car
             }
         }
 
-        public void AddHead(Car newCar)
-        {
-            Node currentNode = new Node(newCar);
-            currentNode.nextCar = head;
-            head.previous = currentNode;
-            head = currentNode;
-        }
-
+        /// <summary>
+        /// Searches for objects with similar fields to passed object
+        /// </summary>
+        /// <param name="Car">The fields of this object will be used to search for similar objects.</param>
+        /// <returns>List of found objects</returns>
         public MyList Search(Car Car)
         {
             Node currentNode = head;
@@ -62,6 +89,9 @@ namespace Car
             return SearchResult;
         }
 
+        /// <summary>
+        /// display list elements 
+        /// </summary>
         public void Out()
         {
             Node currentNode = head;

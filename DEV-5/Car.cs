@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace DEV5
 {
+    /// <summary>
+    /// Represents entity of car.
+    /// </summary>
     public class Car
     {
         public string brand { get; }
@@ -11,12 +14,12 @@ namespace DEV5
         public double unitCost; 
 
         /// <summary>
-        /// Initialize new car object
+        /// Initialize new car object.
         /// </summary>
-        /// <param name="brand">Brend of car</param>
-        /// <param name="model">Model of car</param>
-        /// <param name=quantity">Quantity of car</param>
-        /// <param name="unitCost">Cost of one car</param>
+        /// <param name="brand">Brend of car.</param>
+        /// <param name="model">Model of car.</param>
+        /// <param name=quantity">Quantity of car.</param>
+        /// <param name="unitCost">Cost of one car.</param>
         public Car(string brand, string model, int quantity, string unitCost)
         {
             char separatorOfRealValue = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);

@@ -49,7 +49,7 @@
     <Compile Include="Icountable.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypesCounter.cs" />
+    <Compile Include="BrandsCounter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

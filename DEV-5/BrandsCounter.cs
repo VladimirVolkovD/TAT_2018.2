@@ -5,30 +5,30 @@ using System.Linq;
 namespace DEV5
 {
     /// <summary>
-    /// All counter implementing method for calculate all types of cars.
+    /// Brands counter implements method for calculate number of cars brands.
     /// </summary>
-    class AllCounter : Icountable
+    class BrandsCounter : Icountable
     {
         /// <summary>
-        /// Method for count all types of cars.
+        /// Method for calculate number of cars brands.
         /// </summary>
         /// <param name="cars">Lis of cars.</param>
-        /// <param name="arg">Parametr arg.</param>
+        /// <param name="arg"></param>
         public void Count(List<Car> cars, string arg = null)
         {
             if (cars.Any())
             {
-                int count = 0;
+                HashSet<string> brands = new HashSet<string>();
                 foreach (var product in cars)
                 {
-                    count += product.quantity;
+                    brands.Add(product.brand);
                 }
-                Console.Write("Total number of cars: " + count + "\n");
+                Console.Write("Number of car brands: " + brands.Count +"\n");                
             }
             else
             {
                 throw new ArgumentNullException();
-            }    
-        }        
+            }            
+        }
     }
 }

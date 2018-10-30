@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{80A9FC93-7D6A-4B6B-85D2-F44850E36DA9}</ProjectGuid>
+    <ProjectGuid>{804E40E9-6C1F-489D-B798-737DFA923EBA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DEV_1</RootNamespace>
-    <AssemblyName>DEV-1</AssemblyName>
+    <RootNamespace>DEV_5</RootNamespace>
+    <AssemblyName>DEV-5</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="AllCounter.cs" />
+    <Compile Include="AveragePriceCounter.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="CarCreator.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Icountable.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypesCounter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,10 +14,10 @@ namespace DEV5
         public Car Create()
         {
             Console.Write("\nEnter the brand of product: ");
-            string brand = Console.ReadLine();
+            string brand = Console.ReadLine().Trim();
 
             Console.Write("Enter the name of product: ");
-            string model = Console.ReadLine();
+            string model = Console.ReadLine().Trim();
 
             Console.Write("Enter the quantity of product: ");
             int quantity = Int32.Parse(Console.ReadLine());

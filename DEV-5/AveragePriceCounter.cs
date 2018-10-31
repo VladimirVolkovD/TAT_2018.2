@@ -22,7 +22,7 @@ namespace DEV5
             string returnedString = String.Empty;
             if (!string.IsNullOrEmpty(arg) && cars.Exists(product =>  product.brand.Equals(arg)))
             {
-                returnedString = "Average cost of a car in the brand " + arg.ToString() + "s: ";
+                returnedString = "Average cost of a car in the brand " + arg.ToString() + ": ";
                 tempCarsList = cars.FindAll(product => product.brand.Equals(arg));                
             }
             else

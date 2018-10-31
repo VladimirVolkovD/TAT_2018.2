@@ -20,10 +20,10 @@ namespace DEV5
                 {
                     cars.Add(CarBuilder.Create());
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine("Build error: " + ex.Message);
-                }           
+                }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
             CommandHandler newCommandHandler = new CommandHandler(cars);

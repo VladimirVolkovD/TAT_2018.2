@@ -12,7 +12,7 @@ namespace DEV5
         /// Defined type of object and invokes AveragePriceCounter method for object.
         /// </summary>
         /// <param name="cars">Object of ProductStorage class.</param>
-        /// <param name="arg">Brand model for average price calculation.</param>
+        /// <param name="arg">Brand for average price calculation.</param>
         public void Execute(ProductStorage cars, string arg = null)
         {
             try

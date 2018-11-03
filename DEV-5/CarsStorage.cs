@@ -3,10 +3,19 @@ using System.Collections.Generic;
 
 namespace DEV5
 {
+    /// <summary>
+    /// Store cars list,
+    /// engaged in the addition of new car,
+    /// and implements some methods counting.
+    /// </summary>
     public class CarsStorage : ProductStorage
     {
-        List<Car> cars;
+        public List<Car> cars { get;}
 
+        /// <summary>
+        /// Constructor for CarsStorage class.
+        /// Adds new cars to the cars list.
+        /// </summary>
         public CarsStorage()
         {
             cars = new List<Car>();
@@ -37,6 +46,9 @@ namespace DEV5
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }
 
+        /// <summary>
+        /// Method for count all types of cars.
+        /// </summary>
         override public void AllCarsCounter()
         {
             if (cars.Count > 0)
@@ -83,8 +95,6 @@ namespace DEV5
         /// <summary>
         /// Method for calculate number of cars brands.
         /// </summary>
-        /// <param name="cars">Lis of cars.</param>
-        /// <param name="arg"></param>
         override public void BrandsCounter()
         {
             if (cars.Count > 0)

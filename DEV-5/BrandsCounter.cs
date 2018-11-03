@@ -1,23 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace DEV5
 {
     /// <summary>
-    /// Brands counter implements method for calculate number of cars brands.
+    ///Brands counter implementins method for command selection of specific type for object being transferred.
     /// </summary>
     class BrandsCounter : Icountable
     {
         /// <summary>
-        /// Method for calculate number of cars brands.
+        ///  Defined type of object and invokes AveragePriceCounter method for object.
         /// </summary>
-        /// <param name="cars">Lis of cars.</param>
+        /// <param name="cars">Object of ProductStorage class.</param>
+        /// <param name="arg">Unused parameter remaining after inheritance.</param>
         public void Execute(ProductStorage cars, string arg = null)
         {
-            if (cars is CarsStorage)
+            try
             {
-                cars.BrandsCounter();
+                if (cars is CarsStorage)
+                {
+                    cars.BrandsCounter();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Build error: " + ex.Message);
             }
         }
     }

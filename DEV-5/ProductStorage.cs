@@ -1,5 +1,8 @@
 ﻿namespace DEV5
 {
+    /// <summary>
+    /// Determines the function for Storage classes.
+    /// </summary>
     public class ProductStorage
     {
         virtual public void AllCarsCounter() {}

@@ -13,22 +13,12 @@ namespace DEV5
         /// Method for calculate number of cars brands.
         /// </summary>
         /// <param name="cars">Lis of cars.</param>
-        /// <param name="arg"></param>
-        public void Count(List<Car> cars, string arg = null)
+        public void Execute(ProductStorage cars, string arg = null)
         {
-            if (cars.Any())
+            if (cars is CarsStorage)
             {
-                HashSet<string> brands = new HashSet<string>();
-                foreach (var product in cars)
-                {
-                    brands.Add(product.brand);
-                }
-                Console.Write("Number of car brands: " + brands.Count +"\n");                
+                cars.BrandsCounter();
             }
-            else
-            {
-                throw new ArgumentNullException();
-            }            
         }
     }
 }

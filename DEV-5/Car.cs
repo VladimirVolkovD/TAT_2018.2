@@ -6,11 +6,11 @@ namespace DEV5
     /// <summary>
     /// Represents entity of car.
     /// </summary>
-    public class Car
+    public class Car 
     {
         public string brand { get; }
         public string model { get; }
-        public int quantity { get; }
+        public int quantity { get; set;}
         public double unitCost; 
 
         /// <summary>

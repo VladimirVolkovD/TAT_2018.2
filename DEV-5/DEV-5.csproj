@@ -49,6 +49,7 @@
     <Compile Include="CommandHandler.cs" />
     <Compile Include="Icountable.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="ProductStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

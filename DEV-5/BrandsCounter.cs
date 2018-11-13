@@ -10,16 +10,13 @@ namespace DEV5
         /// <summary>
         ///  Defined type of object and invokes AveragePriceCounter method for object.
         /// </summary>
-        /// <param name="cars">Object of ProductStorage class.</param>
+        /// <param name="storageOfProduct">Object of ProductStorage class.</param>
         /// <param name="arg">Unused parameter remaining after inheritance.</param>
-        public void Execute(ProductStorage cars, string arg = null)
+        public void Execute(ProductStorage<Product> storageOfProduct, string arg = null)
         {
             try
             {
-                if (cars is CarsStorage)
-                {
-                    cars.BrandsCounter();
-                }
+                storageOfProduct.BrandsCounter();               
             }
             catch (Exception ex)
             {

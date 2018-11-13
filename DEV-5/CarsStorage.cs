@@ -8,7 +8,7 @@ namespace DEV5
     /// engaged in the addition of new car,
     /// and implements some methods counting.
     /// </summary>
-    public class CarsStorage : ProductStorage
+    public class CarsStorage : ProductStorage<Product>
     {
         public List<Car> cars { get;}
 

@@ -6,7 +6,7 @@ namespace DEV5
     /// <summary>
     /// Represents entity of car.
     /// </summary>
-    public class Car 
+    public class Car : Product
     {
         public string brand { get; }
         public string model { get; }

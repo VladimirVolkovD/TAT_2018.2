@@ -5,6 +5,6 @@
     /// </summary>
     public interface Icountable
     {
-        void Execute(ProductStorage cars, string arg = null);
+        void Execute(ProductStorage<Product> storageOfProduct, string arg = null);
     }
 }

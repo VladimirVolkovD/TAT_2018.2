@@ -11,16 +11,11 @@ namespace DEV5
         /// <summary>
         /// Invokes the required method entered from the keyboard.
         /// </summary>
-        /// <param name="cars">Object of ProductStorage class.</param>
-        public CommandHandler(CarsStorage cars)
+        /// <param name="storageOfProduct">Object of ProductStorage class.</param>
+        public CommandHandler(ProductStorage<Product> storageOfProduct)
         {
             try
-            {
-                //Check that the list is not empty.
-                if (cars.cars.Count == 0)
-                {
-                    throw new Exception("You products list is empty");
-                }
+            {             
                 bool flag = true;
                 Console.WriteLine("\nEnter the command for cars (count brands, count all, average price, average price 'brand', exit)");
                 while (flag)
@@ -32,19 +27,19 @@ namespace DEV5
                     {
                         case "count brands":
                             BrandsCounter typesCounter = new BrandsCounter();
-                            typesCounter.Execute(cars);
+                            typesCounter.Execute(storageOfProduct);
                             break;
                         case "count all":
                             AllCounter allCounter = new AllCounter();
-                            allCounter.Execute(cars); ;
+                            allCounter.Execute(storageOfProduct); ;
                             break;
                         case "average price":
                             AveragePriceCounter averagePriceCounter = new AveragePriceCounter();
-                            averagePriceCounter.Execute(cars); ;
+                            averagePriceCounter.Execute(storageOfProduct); ;
                             break;
                         case "average price ":
                             AveragePriceCounter averagePriceCounterType = new AveragePriceCounter();
-                            averagePriceCounterType.Execute(cars, brand.Trim());
+                            averagePriceCounterType.Execute(storageOfProduct, brand.Trim());
                             break;
                         case "exit":
                             flag = false;

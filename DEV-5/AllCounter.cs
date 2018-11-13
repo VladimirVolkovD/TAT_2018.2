@@ -16,15 +16,12 @@ namespace DEV5
         {
             try
             {
-                if (storageOfProduct is CarsStorage)
-                {
-                    storageOfProduct.AllCarsCounter();
-                }
+                storageOfProduct.AllCarsCounter();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Build error: " + ex.Message);
             }
-}        
+        }     
     }
 }

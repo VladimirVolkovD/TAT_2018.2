@@ -5,7 +5,11 @@ using System.Text;
 
 namespace MyTrianlges
 {
-    class RightTriangle : ISquare
+    class RightTriangle : Triangle, ISquare
     {
+        public double GetSquare()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

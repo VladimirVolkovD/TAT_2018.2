@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 
 namespace MyTrianlges
-{ 
-    class EquilateralTriangle : ISquare
+{
+    class EquilateralTriangle : Triangle, ISquare
     {
+        public double GetSquare()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

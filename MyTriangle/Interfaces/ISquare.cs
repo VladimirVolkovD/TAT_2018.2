@@ -7,5 +7,6 @@ namespace MyTrianlges
 {
     interface ISquare
     {
+        Double GetSquare();
     }
 }

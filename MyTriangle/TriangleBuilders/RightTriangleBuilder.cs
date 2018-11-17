@@ -5,7 +5,11 @@ using System.Text;
 
 namespace MyTrianlges
 {
-    class RightTriangleBuilder : ICreate
+    class RightTriangleBuilder : TriangleBuilder, ICreate
     {
+        public Triangle CreateTriangle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

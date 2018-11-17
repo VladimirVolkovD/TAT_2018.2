@@ -9,6 +9,14 @@ namespace MyTrianlges
     {
         static void Main(string[] args)
         {
+            TriangleBuilder builder = new TriangleBuilder();           
+            
+            Point AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+            Point BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+            Point CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));            
+
+            builder.CreateTriangle(AB, BC, CA);
+            System.Console.ReadKey();
         }
     }
 }

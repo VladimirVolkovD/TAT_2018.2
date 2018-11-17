@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MyTrianlges
 {
@@ -9,14 +6,22 @@ namespace MyTrianlges
     {
         static void Main(string[] args)
         {
-            TriangleBuilder builder = new TriangleBuilder();           
-            
-            Point AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-            Point BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-            Point CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));            
+            try
+            {
+                TriangleBuilder builder = new RightTriangleBuilder(new EquilateralTriangleBuilder(new ArbitraryTriangleBuilder(null)));
+                Point AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+                Point BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+                Point CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
 
-            builder.CreateTriangle(AB, BC, CA);
-            System.Console.ReadKey();
+                Triangle myTriangle = builder.CreateTriangle(AB, BC, CA);                
+                System.Console.WriteLine("square = " + myTriangle.GetSquare());
+                System.Console.ReadKey();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Error: " + error.Message);
+                System.Console.ReadKey();
+            }
         }
     }
 }

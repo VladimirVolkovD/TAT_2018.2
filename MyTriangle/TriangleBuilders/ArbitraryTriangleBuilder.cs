@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MyTrianlges
+﻿namespace MyTrianlges
 {
-    class ArbitraryTriangleBuilder : TriangleBuilder, ICreate
+    class ArbitraryTriangleBuilder : TriangleBuilder
     {
-        public Triangle CreateTriangle()
+        public ArbitraryTriangleBuilder(TriangleBuilder nextBuilder)
         {
-            throw new NotImplementedException();
+            NextBuilder = nextBuilder;            
         }
+
+        public override Triangle CreateTriangle(Point firstPoint, Point secondPoint, Point thirdPoint)
+        {
+            return new ArbitraryTriangle(firstPoint, secondPoint, thirdPoint);
+        }
+
     }
 }

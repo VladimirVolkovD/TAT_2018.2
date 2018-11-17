@@ -46,8 +46,6 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Triangles\EquilateralTriangle.cs" />
     <Compile Include="TriangleBuilders\EquilateralTriangleBuilder.cs" />
-    <Compile Include="Interfaces\ICreate.cs" />
-    <Compile Include="Interfaces\ISquare.cs" />
     <Compile Include="PointStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Triangles\RightTriangle.cs" />

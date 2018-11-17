@@ -1,15 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MyTrianlges
 {
-    class EquilateralTriangle : Triangle, ISquare
+    class EquilateralTriangle : Triangle
     {
-        public double GetSquare()
+        Point firstPoint;
+        Point secondPoint;
+        Point thirdPoint;
+
+        public EquilateralTriangle(Point firstPoint, Point secondPoint, Point thirdPoint)
         {
-            throw new NotImplementedException();
+            this.firstPoint = firstPoint;
+            this.secondPoint = secondPoint;
+            this.thirdPoint = thirdPoint;            
+        }
+
+        public override double GetSquare()
+        {
+            return (Math.Pow(firstPoint.GetDistance(secondPoint),2)* Math.Sqrt(3))/4;
         }
     }
 }

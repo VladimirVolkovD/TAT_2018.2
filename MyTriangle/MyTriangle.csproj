@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{80A9FC93-7D6A-4B6B-85D2-F44850E36DA9}</ProjectGuid>
+    <ProjectGuid>{5FC83615-1D4E-4536-9D10-8F6FA7ADDECB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DEV_1</RootNamespace>
-    <AssemblyName>DEV-1</AssemblyName>
+    <RootNamespace>MyTriangle</RootNamespace>
+    <AssemblyName>MyTriangle</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Triangles\ArbitraryTriangle.cs" />
+    <Compile Include="TriangleBuilders\ArbitraryTriangleBuilder.cs" />
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="Triangles\EquilateralTriangle.cs" />
+    <Compile Include="TriangleBuilders\EquilateralTriangleBuilder.cs" />
+    <Compile Include="Interfaces\ICreate.cs" />
+    <Compile Include="Interfaces\ISquare.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Triangles\RightTriangle.cs" />
+    <Compile Include="TriangleBuilders\RightTriangleBuilder.cs" />
+    <Compile Include="Triangles\Triangle.cs" />
+    <Compile Include="TriangleBuilders\TriangleBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

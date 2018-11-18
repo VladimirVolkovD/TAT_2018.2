@@ -2,8 +2,15 @@
 
 namespace MyTrianlges
 {
+    /// <summary>
+    /// Entry point.
+    /// </summary>
     class EntryPoint
     {
+        /// <summary>
+        /// The entry point of the program, where the program control starts and ends.
+        /// </summary>
+        /// <param name="args">The command-line arguments.</param>
         static void Main(string[] args)
         {
             try
@@ -12,7 +19,6 @@ namespace MyTrianlges
                 Point AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
                 Point BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
                 Point CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-
                 Triangle myTriangle = builder.CreateTriangle(AB, BC, CA);                
                 System.Console.WriteLine("square = " + myTriangle.GetSquare());
                 System.Console.ReadKey();

@@ -1,6 +1,0 @@
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\bin\Debug\DEV-3.exe
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\bin\Debug\DEV-3.pdb
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\obj\Debug\DEV-3.csproj.CoreCompileInputs.cache
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\obj\Debug\DEV-3.exe
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\obj\Debug\DEV-3.pdb
-C:\1. WORK\Материалы для учёбы\Курсы\HomeTask\TAT_2018.2\DEV-3\DEV-3\obj\Debug\DEV-3.csprojAssemblyReference.cache

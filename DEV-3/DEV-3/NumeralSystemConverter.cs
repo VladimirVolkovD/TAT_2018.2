@@ -2,11 +2,11 @@ using System;
 using System.Text;
 
 namespace DEV_3
-{
+{   
     /// <summary> 
     /// This class converts decimal number in other numeral system
     /// </summary>
-    public class NumeralSystemConverter
+    class NumeralSystemConverter
     {
         public int number;
         public int newBase;
@@ -30,7 +30,7 @@ namespace DEV_3
         /// A method that creates a string that is a representation of a number in the new numeral system
         /// </summary> 
         /// <returns>Value In New System</returns>
-        public string DecimalToOtherNumeralSystem()
+        public void DecimalToOtherNumeralSystem()
         {            
             StringBuilder valueInNewSystem = new StringBuilder();            
             do
@@ -51,7 +51,6 @@ namespace DEV_3
             } while (0 != number);
 
             covertedNumber = ReverseString(valueInNewSystem.ToString());
-            return covertedNumber;
         }       
 
         /// <summary>

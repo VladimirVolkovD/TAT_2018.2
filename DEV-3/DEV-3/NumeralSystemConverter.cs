@@ -53,8 +53,7 @@ namespace DEV_3
 
             } while (0 != number);
 
-            covertedNumber = ReverseString(valueInNewSystem.ToString());
-            Console.WriteLine("InMethods ="+ covertedNumber+"=");
+            covertedNumber = ReverseString(valueInNewSystem.ToString());            
             return covertedNumber;
         }
 

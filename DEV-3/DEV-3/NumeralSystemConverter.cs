@@ -2,11 +2,11 @@ using System;
 using System.Text;
 
 namespace DEV_3
-{   
+{
     /// <summary> 
-    /// This class converts decimal number in other numeral system
+    /// This class converts decimal number in other numeral system.
     /// </summary>
-    class NumeralSystemConverter
+    public class NumeralSystemConverter
     {
         public int number;
         public int newBase;
@@ -14,10 +14,10 @@ namespace DEV_3
         public string covertedNumber;       
 
         /// <summary>
-        /// Class constructor for NumeralSystemConverter
+        /// Class constructor for NumeralSystemConverter.
         /// </summary>
-        /// <param name="number">number</param>
-        /// <param name="newBase">new base of numeral system</param>
+        /// <param name="number">Number.</param>
+        /// <param name="newBase">New base of numeral system.</param>
         public NumeralSystemConverter(int number,int newBase)
         {
             sign = Math.Sign(number);
@@ -26,12 +26,15 @@ namespace DEV_3
         }
 
         /// <summary> 
-        /// Method DecimalToOtherNumeralSystem
-        /// A method that creates a string that is a representation of a number in the new numeral system
+        /// Creates a string that is a representation of a number in the new numeral system.
         /// </summary> 
-        /// <returns>Value In New System</returns>
-        public void DecimalToOtherNumeralSystem()
-        {            
+        /// <returns>Value In New System.</returns>
+        public string DecimalToOtherNumeralSystem()
+        {
+            if (newBase < 2 || newBase > 20)
+            {
+                throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
+            }
             StringBuilder valueInNewSystem = new StringBuilder();            
             do
             {
@@ -51,14 +54,16 @@ namespace DEV_3
             } while (0 != number);
 
             covertedNumber = ReverseString(valueInNewSystem.ToString());
-        }       
+            Console.WriteLine("InMethods ="+ covertedNumber+"=");
+            return covertedNumber;
+        }
 
         /// <summary>
-        /// Reverses the order of the elements in a  string
+        /// Reverses the order of the elements in a  string.
         /// </summary>
-        /// <param name="stringForReverse">string for reverse</param>
-        /// <returns></returns>
-        private string ReverseString(string stringForReverse)
+        /// <param name="stringForReverse">String for reverse.</param>
+        /// <returns>Reversed string.</returns>
+        public string ReverseString(string stringForReverse)
         {
             char[] reversedString = stringForReverse.ToCharArray();
             Array.Reverse(reversedString);

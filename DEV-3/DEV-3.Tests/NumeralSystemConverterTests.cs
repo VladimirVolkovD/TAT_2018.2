@@ -31,6 +31,15 @@ namespace DEV_3
             Assert.AreEqual(expectedString, actualValue);
         }
 
+        //[TestCase(string[] acceptedString = "ABCDEFG")]
+        //[TestCase("0123456")]
+        //public void DecimalToOtherNumeralSystem_IndexOutOfRangeException(string[] acceptedString)
+        //{           
+        //    Assert.Throws<IndexOutOfRangeException>(() => Converter.Main(acceptedString));
+        //}
+
+        
+
         [TestCase(int.MinValue, 11)]        
         public void DecimalToOtherNumeralSystem_OverflowException(int acceptedNumber, int ecceptedFoundetion)
         {

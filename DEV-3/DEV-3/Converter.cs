@@ -7,9 +7,9 @@ namespace DEV_3
     /// accept from the command line two arguments
     /// and convert number (1 argument) in the new numeral system (2 argument).
     /// </summary> 
-    class Converter
+    public class Converter
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             try
             {

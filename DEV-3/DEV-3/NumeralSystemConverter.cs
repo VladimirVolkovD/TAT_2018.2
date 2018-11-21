@@ -33,7 +33,7 @@ namespace DEV_3
         {
             if (newBase < 2 || newBase > 20)
             {
-                throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
+                throw new Exception("WrongBaseOfNumeralSystem.");
             }
             StringBuilder valueInNewSystem = new StringBuilder();            
             do

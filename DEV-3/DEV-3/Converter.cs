@@ -12,17 +12,24 @@ namespace DEV_3
         public static void Main(string[] args)
         {
             try
-            {
+            {                
                 int number = int.Parse(args[0]);
                 int newBaseOfNumberSystem = int.Parse(args[1]);                
                 NumeralSystemConverter convertedNumber = new NumeralSystemConverter(number, newBaseOfNumberSystem);
                 convertedNumber.DecimalToOtherNumeralSystem();
-                WriteCovertedNumber(convertedNumber, number);
-                
-            }           
+                WriteCovertedNumber(convertedNumber, number);                
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("WrongNumberOfParametersException: You should enter two decimal numbers.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("FormatException: You should enter only decimal numbers.");
+            }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception message: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 

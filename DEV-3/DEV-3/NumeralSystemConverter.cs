@@ -33,7 +33,7 @@ namespace DEV_3
         {
             if (newBase < 2 || newBase > 20)
             {
-                throw new Exception("WrongBaseOfNumeralSystem.");
+                throw new Exception("WrongBaseOfNumeralSystemException: Value of new numeral system must be between 2 and 20.");
             }
             StringBuilder valueInNewSystem = new StringBuilder();            
             do
@@ -62,7 +62,7 @@ namespace DEV_3
         /// </summary>
         /// <param name="stringForReverse">String for reverse.</param>
         /// <returns>Reversed string.</returns>
-        public string ReverseString(string stringForReverse)
+        string ReverseString(string stringForReverse)
         {
             char[] reversedString = stringForReverse.ToCharArray();
             Array.Reverse(reversedString);

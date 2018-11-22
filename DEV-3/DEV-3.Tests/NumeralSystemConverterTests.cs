@@ -31,15 +31,7 @@ namespace DEV_3
             string actual = convertedNumber.DecimalToOtherNumeralSystem();
             Assert.AreEqual(expectedNumber, actual);
         }
-
-        [TestCase(10, 1)]
-        [TestCase(6, 21)]        
-        public void DecimalToOtherNumeralSystemTest_WrongBaseException(int acceptedNumber, int ecceptedBase)
-        {
-            NumeralSystemConverter convertedNumber = new NumeralSystemConverter(acceptedNumber, ecceptedBase);
-            Assert.Throws<Exception>(() => convertedNumber.DecimalToOtherNumeralSystem());
-        }
-
+        
         [TestCase(int.MinValue, 11)]        
         public void DecimalToOtherNumeralSystem_OverflowException(int acceptedNumber, int ecceptedBase)
         {

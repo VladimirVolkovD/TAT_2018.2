@@ -1,5 +1,8 @@
 ﻿namespace DEV8
 {
+    /// <summary>
+    /// Available commands.
+    /// </summary>
     public enum Commands
     {
         Count_types,

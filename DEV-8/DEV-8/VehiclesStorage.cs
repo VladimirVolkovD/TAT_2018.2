@@ -30,8 +30,7 @@ namespace DEV8
         public void AllCounter()
         {
             int quantityOfAllVehicles = Vehicles.Select(i => i.Quantity).Sum(x => x);
-            Console.Write("Total number of "+ TypeOfVehicle+ ": " + quantityOfAllVehicles + "\n");
-            
+            Console.Write("Total number of "+ TypeOfVehicle+ ": " + quantityOfAllVehicles + "\n");            
         }
 
         /// <summary>

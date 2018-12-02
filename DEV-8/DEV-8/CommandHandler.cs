@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DEV8
 {
@@ -10,77 +9,74 @@ namespace DEV8
     /// </summary>
     class CommandHandler
     {
+        ICommand Command;
         VehiclesStorage CarsStorage;
         VehiclesStorage TruckStogare;
-        VehiclesStorage CurrentStorage;
-
-        ////////////////////////////////////        
+        VehiclesStorage CurrentStorage;         
         Stack<ICommand> CommandsHistory = new Stack<ICommand>();
-        ////////////////////////////////////
 
-        ICommand Command;
-
-        public CommandHandler(VehiclesStorage _CarsStorage, VehiclesStorage _TruckStogare)
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="carsStorage">Cars storage.</param>
+        /// <param name="truckStogare">Trucks storage.</param>
+        public CommandHandler(VehiclesStorage carsStorage, VehiclesStorage truckStogare)
         {
-            CarsStorage = _CarsStorage;
-            TruckStogare = _TruckStogare;
+            CarsStorage = carsStorage;
+            TruckStogare = truckStogare;
         }
 
         /// <summary>
-        /// Invokes the required method entered from the keyboard.
+        /// Shows the commands and invokes the required method entered from the keyboard.
         /// </summary>
-        /// <param name="storageOfProduct">Object of ProductStorage class.</param>
         public void Show()
         {
-            try
-            {             
-                bool flag = true;
-                
-                Console.WriteLine("Enter the command for vehicle:\n  -Count_types Car(Truck)\n  -Сount_all Car(Truck)" +
-                    "\n  -Averagep_price Car(Truck)\n  -Average_PriceType Car(Truck)\n  -Execute\n  -Exit");
-                while (flag)
-                {
-                    Console.Write(">");
-                    string[] inputStrings = Console.ReadLine().Split(' ');
-                    Commands commands = GetCommand(inputStrings);
-                    Command = null;                                     
-                    switch (commands)
-                    {
-                        case Commands.Count_types:                            
-                            Command = new BrandsCounter(CurrentStorage);                           
-                            break;
-                        case Commands.Count_all:
-                            Command = new AllCounter(CurrentStorage);
-                            break;
-                        case Commands.Average_price:
-                            Command = new AveragePriceCounter(CurrentStorage);
-                            break;
-                        case Commands.Average_PriceType:
-                            Command = new AveragePriceCounter(CurrentStorage, inputStrings[2]);
-                            break;                        
-                        case Commands.Execute:
-                            Stack<ICommand> CommandsHistoryBuffer = new Stack<ICommand>(CommandsHistory);                            
-                            while (CommandsHistoryBuffer.Count > 0)
-                            {                                
-                                CommandsHistoryBuffer.Pop().Execute();
-                            }
-                            break;
-                        case Commands.Exit:
-                            flag = false;
-                            break;
-                        case Commands.UnknownCommand:
-                           Console.Write("Unknown command. Try again.");
-                           break;
-                    }
-                    Command?.Execute();
-                }
-            }
-            catch (Exception ex)
+            Console.Write("Enter the command for vehicle:\n  -Count_types Car(Truck)\n  -Сount_all Car(Truck)" +
+                    "\n  -Averagep_price Car(Truck)\n  -Average_PriceType Car(Truck)\n  -Execute\n  -Exit\n");
+            bool flag = true;
+            while (flag)
             {
-                Console.WriteLine("Error:" + ex.Message);
-            }
+                Console.Write(">");
+                Command = null;
+                string[] inputStrings = Console.ReadLine().Split(' ');
+                Commands commands = GetCommand(inputStrings);                
+                switch (commands)
+                {
+                    case Commands.Count_types:
+                        Command = new BrandsCounter(CurrentStorage);
+                        break;
+                    case Commands.Count_all:
+                        Command = new AllCounter(CurrentStorage);
+                        break;
+                    case Commands.Average_price:
+                        Command = new AveragePriceCounter(CurrentStorage);
+                        break;
+                    case Commands.Average_PriceType:
+                        Command = new AveragePriceCounter(CurrentStorage, inputStrings[2]);
+                        break;
+                    case Commands.Execute:
+                        Stack<ICommand> CommandsHistoryBuffer = new Stack<ICommand>(CommandsHistory);
+                        while (CommandsHistoryBuffer.Count > 0)
+                        {
+                            CommandsHistoryBuffer.Pop().Execute();
+                        }
+                        break;
+                    case Commands.Exit:
+                        flag = false;
+                        break;
+                    case Commands.UnknownCommand:
+                        Console.Write("Unknown command. Try again.");
+                        break;
+                }
+                Command?.Execute();
+            }          
         }
 
+        /// <summary>
+        ///  Gets the command.
+        /// </summary>
+        /// <param name="str">Inputed array of strings.</param>
+        /// <returns>The command.</returns>
         private Commands GetCommand(string[] str)
         {
             if ( (str.Length == 1) && (str[0].Equals("Execute")) )

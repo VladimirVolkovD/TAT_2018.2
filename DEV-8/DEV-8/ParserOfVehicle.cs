@@ -3,17 +3,33 @@ using System.Xml;
 
 namespace DEV8
 {
+    /// <summary>
+    ///  Creates List of Vehicle based on XML file.
+    /// </summary>
     class ParserOfVehicle
     {
-        private static readonly ParserOfVehicle instance = new ParserOfVehicle();
         List<Vehicle> Vehicles;
+        private static readonly ParserOfVehicle instance = new ParserOfVehicle();       
+
+        /// <summary>
+        /// Initialize Singleton
+        /// </summary>
         private ParserOfVehicle() { }
 
+        /// <summary>
+        /// Access to access.
+        /// </summary>
+        /// <returns>Instance.</returns>
         public static ParserOfVehicle GetInstance()
         {
             return instance;
         }
 
+        /// <summary>
+        /// Parse XML file and search the vehicles instance.
+        /// </summary>
+        /// <param name="xmlFile">XML file.</param>
+        /// <returns>List of Vehicle.></returns>
         public List<Vehicle> GetVehicleList(string xmlFile)
         {
             Vehicles = new List<Vehicle>();

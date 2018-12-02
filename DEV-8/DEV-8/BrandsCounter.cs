@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DEV8
+﻿namespace DEV8
 {
     /// <summary>
     ///Brands counter implementins method for command selection of specific type for object being transferred.
@@ -10,17 +8,17 @@ namespace DEV8
         private VehiclesStorage VehiclesStorage;
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_VehiclesStorage"></param>
-        public BrandsCounter(VehiclesStorage _VehiclesStorage)
+        /// Constructor.
+        /// </summary>     
+        /// <param name="vehiclesStorage">Vehicle storage.</param>
+        public BrandsCounter(VehiclesStorage vehiclesStorage)
         {
-            VehiclesStorage = _VehiclesStorage;
+            VehiclesStorage = vehiclesStorage;
         }
 
         /// <summary>
-        ///  Defined type of object and invokes BrandsCounter method for object.
-        /// </summary>       
+        ///  Execute this instance.
+        /// </summary>        
         public void Execute()
         {         
                 VehiclesStorage.BrandsCounter();               

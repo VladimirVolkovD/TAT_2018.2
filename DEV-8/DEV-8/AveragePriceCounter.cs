@@ -10,7 +10,11 @@ namespace DEV8
         VehiclesStorage VehiclesStorage;
         string Brand;
 
-
+        /// <summary>
+        /// Constructor.
+        /// </summary>     
+        /// <param name="vehiclesStorage">Vehicle storage.</param>
+        /// <param name="brand">Brand, if necessary</param>
         public AveragePriceCounter(VehiclesStorage vehiclesStorage, string brand = null)
         {
             VehiclesStorage = vehiclesStorage;
@@ -18,7 +22,7 @@ namespace DEV8
         }
 
         /// <summary>
-        ///  Defined type of object and invokes AveragePriceCounter method for object.
+        ///  Execute this instance.
         /// </summary>       
         public void Execute()
         {

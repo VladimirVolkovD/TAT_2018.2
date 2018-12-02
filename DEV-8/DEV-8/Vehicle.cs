@@ -4,11 +4,10 @@ using System.Threading;
 namespace DEV8
 {
     /// <summary>
-    /// Represents entity of car.
+    /// Represents vehicle entity.
     /// </summary>
     public class Vehicle
-    {
-        
+    {        
         public string Brand { get; }
         public string Model { get; }
         public int Quantity { get; set;}

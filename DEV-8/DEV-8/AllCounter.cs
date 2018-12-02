@@ -9,14 +9,17 @@ namespace DEV8
     {
         private VehiclesStorage VehiclesStorage;
 
-
-        public AllCounter(VehiclesStorage _VehiclesStorage)
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="vehiclesStorage">Vehicle storage.</param>
+        public AllCounter(VehiclesStorage vehiclesStorage)
         {
-            VehiclesStorage = _VehiclesStorage;
+            VehiclesStorage = vehiclesStorage;
         }
 
         /// <summary>
-        ///  Defined type of object and invokes AveragePriceCounter method for object.
+        ///  Execute this instance.
         /// </summary>       
         public void Execute()
         {

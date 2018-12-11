@@ -51,8 +51,8 @@
   <ItemGroup>
     <Compile Include="Locators.cs" />
     <Compile Include="LogInPage.cs" />
-    <Compile Include="MessagePage.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MessagesPage.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

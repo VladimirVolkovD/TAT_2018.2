@@ -4,6 +4,9 @@ using System;
 
 namespace DEV_9
 {
+    /// <summary>
+    /// Create object of login page
+    /// </summary>
     class LogInPage 
     {
         public string Login { get; set; }
@@ -11,7 +14,13 @@ namespace DEV_9
         Locators.LoginPageLocators _locator = new Locators.LoginPageLocators();
         IWebElement _loginButton;
         IWebDriver _driver;
-        
+
+        /// <summary>
+        /// Class constructor
+        /// </summary>
+        /// <param name="driver">WebDriver object</param>
+        /// <param name="login">Your login</param>
+        /// <param name="password">Your password</param>
         public LogInPage(IWebDriver driver, string login, string password)
         {           
             _driver = driver;
@@ -22,6 +31,9 @@ namespace DEV_9
             _loginButton = waiter.Until(_driver => driver.FindElement(By.Id(_locator.LoginButton)));
         }
 
+        /// <summary>
+        /// Login into VK system
+        /// </summary>
         public void LogIn()
         {          
             _driver.FindElement(By.Id(_locator.EmailField)).SendKeys(Login);

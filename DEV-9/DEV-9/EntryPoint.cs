@@ -2,6 +2,9 @@
 
 namespace DEV_9
 {
+    /// <summary>
+    /// Calls all methods for all tested web pages
+    /// </summary>
     class EntryPoint
     {      
         static void Main(string[] args)
@@ -11,7 +14,7 @@ namespace DEV_9
             var logInPage = new LogInPage(driver, "YourEmail", "YourPassword");
             logInPage.LogIn();
             
-            var messagePage = new MessagePage(driver);
+            var messagePage = new MessagesPage(driver);
             messagePage.ShowUnreadMessages();
 
             driver.Close();

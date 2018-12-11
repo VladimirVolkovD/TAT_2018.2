@@ -10,13 +10,10 @@ namespace DEV_9
         static void Main(string[] args)
         {
             ChromeDriver driver = new ChromeDriver();
-
             var logInPage = new LogInPage(driver, "YourEmail", "YourPassword");
-            logInPage.LogIn();
-            
+            logInPage.LogIn();            
             var messagePage = new MessagesPage(driver);
             messagePage.ShowUnreadMessages();
-
             driver.Close();
             driver.Quit();
         }        

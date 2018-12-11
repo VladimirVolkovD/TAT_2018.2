@@ -8,25 +8,24 @@ namespace DEV_9
     {
         public string Login { get; set; }
         public string Password { get; set; }
-        By _elementEmail = By.Id("index_email");
-        By _elementPassword = By.Id("index_pass");
-        WebDriverWait waiter;
+        Locators.LoginPageLocators _locator = new Locators.LoginPageLocators();
         IWebElement _loginButton;
         IWebDriver _driver;
         
         public LogInPage(IWebDriver driver, string login, string password)
         {           
-            this._driver = driver;
+            _driver = driver;
+            _driver.Navigate().GoToUrl(_locator.VkPageLocator);
+            WebDriverWait waiter = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
             Login = login;
-            Password = password;
-            waiter = new WebDriverWait(_driver, TimeSpan.FromSeconds(30)); ;
-            _loginButton = waiter.Until(_driver => driver.FindElement(By.Id("index_login_button")));
+            Password = password;           
+            _loginButton = waiter.Until(_driver => driver.FindElement(By.Id(_locator.LoginButton)));
         }
 
         public void LogIn()
-        {
-            _driver.FindElement(_elementEmail).SendKeys(Login);
-            _driver.FindElement(_elementPassword).SendKeys(Password);
+        {          
+            _driver.FindElement(By.Id(_locator.EmailField)).SendKeys(Login);
+            _driver.FindElement(By.Id(_locator.PasswordField)).SendKeys(Password);
             _loginButton.Click();
         }  
     }

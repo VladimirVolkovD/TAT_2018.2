@@ -1,36 +1,36 @@
 ﻿using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
 
 namespace DEV_9
 {
     class MessagePage 
-    {
-        By DialogLocator = By.XPath("//*[@id=\"im_dialogs\"]");
-        private IWebDriver driver;
-        private List<IWebElement> UnreadMessages;
+    {        
+        private IWebDriver _driver;
+        IWebElement unreadMesseges;
+        Locators.MessagesPageLocators _locator = new Locators.MessagesPageLocators();
 
         public MessagePage(IWebDriver driver)
-        {
-            UnreadMessages = new List<IWebElement>();
-            this.driver = driver;
+        {           
+            _driver = driver;
+            _driver.Navigate().GoToUrl(_locator.MessagePage);
         }
 
         private void FindUnreadMessages()
         {
-            var unread = driver.FindElement(DialogLocator).FindElements(By.ClassName("nim-dialog_unread"));
-            foreach (var i in unread)
-            {
-                UnreadMessages.Add(i);
-            }
+            unreadMesseges = _driver.FindElement(By.Id(_locator.UnreadMessage));
+            unreadMesseges.Click();
         }
 
         public void ShowUnreadMessages()
         {
             FindUnreadMessages();
-            foreach (var i in UnreadMessages)
+            IWebElement dialogElements = _driver.FindElement(By.Id(_locator.DialogsLocator));
+            var messages = dialogElements.FindElements(By.ClassName(_locator.Message));
+
+            foreach (var i in messages)
             {
-                Console.WriteLine("\nUnread message:\n" + i.Text);
+                Console.WriteLine("\nFrom : " + i.FindElement(By.ClassName(_locator.MessageName)).Text);
+                Console.WriteLine("Message : "+ i.FindElement(By.ClassName(_locator.MessageText)).Text);
             }
         }      
     }

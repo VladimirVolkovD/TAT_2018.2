@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Locators.cs" />
     <Compile Include="LogInPage.cs" />
     <Compile Include="MessagePage.cs" />
     <Compile Include="Program.cs" />

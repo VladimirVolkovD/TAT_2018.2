@@ -10,12 +10,12 @@ namespace DEV_9
     {        
         private IWebDriver _driver;
         IWebElement unreadMesseges;
-        Locators.MessagesPageLocators _locator = new Locators.MessagesPageLocators();
+        
 
         public MessagesPage(IWebDriver driver)
         {           
             _driver = driver;
-            _driver.Navigate().GoToUrl(_locator.MessagePage);
+            _driver.Navigate().GoToUrl(Locators.MessagesPageLocators.MessagePage);
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace DEV_9
         /// </summary>
         private void FindUnreadMessages()
         {
-            unreadMesseges = _driver.FindElement(By.Id(_locator.UnreadMessage));
+            unreadMesseges = _driver.FindElement(Locators.MessagesPageLocators.UnreadMessage);
             unreadMesseges.Click();
         }
 
@@ -33,13 +33,13 @@ namespace DEV_9
         public void ShowUnreadMessages()
         {
             FindUnreadMessages();
-            IWebElement dialogElements = _driver.FindElement(By.Id(_locator.DialogsLocator));
-            var messages = dialogElements.FindElements(By.ClassName(_locator.Message));
+            IWebElement dialogElements = _driver.FindElement(Locators.MessagesPageLocators.DialogsLocator);
+            var messages = dialogElements.FindElements(Locators.MessagesPageLocators.Message);
 
             foreach (var i in messages)
             {
-                Console.WriteLine("\nFrom : " + i.FindElement(By.ClassName(_locator.MessageName)).Text);
-                Console.WriteLine("Message : "+ i.FindElement(By.ClassName(_locator.MessageText)).Text);
+                Console.WriteLine("\nFrom : " + i.FindElement(Locators.MessagesPageLocators.MessageName).Text);
+                Console.WriteLine("Message : "+ i.FindElement(Locators.MessagesPageLocators.MessageText).Text);
             }
         }      
     }

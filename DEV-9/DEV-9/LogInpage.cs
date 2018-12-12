@@ -10,8 +10,8 @@ namespace DEV_9
     class LogInPage 
     {
         public string Login { get; set; }
-        public string Password { get; set; }
-        Locators.LoginPageLocators _locator = new Locators.LoginPageLocators();
+        public string Password { get; set; }        
+        WebDriverWait _waiter;
         IWebElement _loginButton;
         IWebDriver _driver;
 
@@ -24,11 +24,11 @@ namespace DEV_9
         public LogInPage(IWebDriver driver, string login, string password)
         {           
             _driver = driver;
-            _driver.Navigate().GoToUrl(_locator.VkPageLocator);
-            WebDriverWait waiter = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            _driver.Navigate().GoToUrl(Locators.LoginPageLocators.VkPageLocator);
+             _waiter = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
             Login = login;
             Password = password;           
-            _loginButton = waiter.Until(_driver => driver.FindElement(By.Id(_locator.LoginButton)));
+            _loginButton = _waiter.Until(_driver => driver.FindElement(Locators.LoginPageLocators.LoginButton));
         }
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace DEV_9
         /// </summary>
         public void LogIn()
         {          
-            _driver.FindElement(By.Id(_locator.EmailField)).SendKeys(Login);
-            _driver.FindElement(By.Id(_locator.PasswordField)).SendKeys(Password);
+            _driver.FindElement(Locators.LoginPageLocators.EmailField).SendKeys(Login);
+            _driver.FindElement(Locators.LoginPageLocators.PasswordField).SendKeys(Password);
             _loginButton.Click();
         }  
     }

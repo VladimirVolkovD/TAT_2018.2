@@ -1,69 +1,71 @@
-﻿namespace DEV_9
+﻿using OpenQA.Selenium;
+
+namespace DEV_9
 {
     /// <summary>
     /// Container for all locators
     /// </summary>
-    class Locators
+    static class Locators
     {
         /// <summary>
         /// Container for login page locators
         /// </summary>
-        public class LoginPageLocators
+        public static class LoginPageLocators
         {
-            public string VkPageLocator
+            public static string VkPageLocator
             {
                 get { return "https://vk.com"; }
             }
 
-            public string EmailField
+            public static By EmailField
             {
-                get { return "index_email"; }
+                get { return By.Id("index_email"); }
             }
 
-            public string PasswordField
+            public static By PasswordField
             {
-                get { return "index_pass"; }
+                get { return By.Id("index_pass"); }
             }
 
-            public string LoginButton
+            public static By LoginButton
             {
-                get { return "index_login_button"; }
+                get { return By.Id("index_login_button"); }
             }
         }
 
         /// <summary>
         /// Container for messages page locators
         /// </summary>
-        public class MessagesPageLocators
+        public static class MessagesPageLocators
         {
-            public string MessagePage
+            public static string MessagePage
             {
                 get { return "https://vk.com/im"; }
             }
 
-            public string UnreadMessage
+            public static By UnreadMessage
             {
-                get { return "ui_rmenu_unread"; }
+                get { return By.Id("ui_rmenu_unread"); }
             }
 
-            public string DialogsLocator
+            public static By DialogsLocator
             {
-                get { return "im_dialogs"; }                
+                get { return By.Id("im_dialogs"); }                
             }        
             
-            public string Message
+            public static By Message
             {
-                get { return "nim-dialog--cw"; }
+                get { return By.ClassName("nim-dialog--cw"); }
             }
 
-            public string MessageName
+            public static By MessageName
             {
-                get { return "nim-dialog--name"; }
+                get { return By.ClassName("nim-dialog--name"); }
             }
 
-            public string MessageText
+            public static By MessageText
             {
-                get { return "nim-dialog--text-preview"; }
+                get { return By.ClassName("nim-dialog--text-preview"); }
             }
         }
     }

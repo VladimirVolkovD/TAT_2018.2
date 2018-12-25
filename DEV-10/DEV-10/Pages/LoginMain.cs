@@ -8,8 +8,8 @@ namespace Tests.Pages
     /// </summary>
     class LoginMain
     {
-        public string passwordString = "login";
-        public string loginString = "pass";   
+        public string  loginstring= "vladimir12.03";
+        public string passwordString = "djg44s6d";   
 
         /// <summary>LogIn text field.</summary>
         [FindsBy(How = How.CssSelector, Using = "input#login")]

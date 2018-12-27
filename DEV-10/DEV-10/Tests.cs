@@ -11,13 +11,13 @@ namespace Tests
     {
         ChromeDriver _driver = new ChromeDriver();
 
-        [SetUp] // before every test
+        [SetUp] //before every test
         public void SetUp()
         {
             _driver.Navigate().GoToUrl("https://poezd.rw.by");
         }
 
-        [OneTimeTearDown]// after all tests
+        [OneTimeTearDown]//after all tests
         public void OneTimeTearDown()
         {            
             _driver.Quit();
@@ -110,6 +110,17 @@ namespace Tests
                 routes.TimeBox(i).Click();
                 routes.TimeBox(i+5).Click();
             }            
+        }
+
+        [Test]
+        public void ElectronicRegistrationRadioButtonClick()
+        {
+            LogIn();
+            Routes routes = new Routes();
+            PageFactory.InitElements(_driver, routes);
+            routes.CheckBoxElectronicRegistration.Click();
+            System.Threading.Thread.Sleep(1000);
+            routes.CheckBoxElectronicRegistration.Click();
         }
     }
 }

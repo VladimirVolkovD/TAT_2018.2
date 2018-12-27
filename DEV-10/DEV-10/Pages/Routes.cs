@@ -14,7 +14,8 @@ namespace Tests.Pages
         public string grodnoText = "ГРОДНО";
         public string gomelText = "ГОМЕЛЬ";
         public string mogilevText = "МОГИЛЁВ-1";
-        public string minskText = "МИНСК-ПАССАЖИРСКИЙ";       
+        public string minskText = "МИНСК-ПАССАЖИРСКИЙ"; 
+        IList<IWebElement> timeCell = new List<IWebElement>();
 
         /// <summary>Logout link.</summary>
         [FindsBy(How = How.CssSelector, Using = "a#logoutlink")]
@@ -26,11 +27,15 @@ namespace Tests.Pages
 
         /// <summary>Departure Time Boxes.</summary>
         public IWebElement TimeBox(int cellNumber)
-        {            
-            IList<IWebElement> timeCell = new List<IWebElement>();
+        {  
             timeCell = timeBoxes.FindElements(By.TagName("a"));
             return timeCell[cellNumber];
         }
+
+        /// <summary>Check box for electronic registration.</summary>
+        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NGMO80ABJ9NPD12001_\\3a form1\\3a onlyER")]
+        public IWebElement CheckBoxElectronicRegistration { get; set; }
+       
 
         /// <summary>Minskd departure link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NGMO80ABJ9NPD12001_\\3a form1\\3a textDepStat")]

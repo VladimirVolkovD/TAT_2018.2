@@ -129,14 +129,6 @@ namespace Tests
             Assert.IsEmpty(_routesPage.DestinationBox.Text);
             Assert.AreEqual(_routesPage.DateBox.GetAttribute("value"), date);
         }
-
-        //[Test]
-        //public void TimeBox()
-        //{
-        //    _routesPage.ClickTimeBox(0);
-        //    _routesPage.ClickTimeBox(1);
-        //    _routesPage.ClickTimeBox(3);
-        //}
     }
 }
 

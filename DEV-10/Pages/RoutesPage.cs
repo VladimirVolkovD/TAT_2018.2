@@ -17,33 +17,9 @@ namespace Pages
         public string minskText = "МИНСК-ПАССАЖИРСКИЙ"; 
         IList<IWebElement> timeCell = new List<IWebElement>();
 
-        /// <summary>Continue button.</summary>
-        [FindsBy(How = How.ClassName, Using = "commandExButton")]
-        public IWebElement ContinueButton { get; set; }
-
-        /// <summary>Logout link.</summary>
-        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a dob")]
-        public IWebElement DateBox { get; set; }
-
-        /// <summary>Warning icon if wrong date inputed.</summary>
-        [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message3")]
-        public IWebElement DateWarIcon { get; set; }
-
         /// <summary>Logout link.</summary>
         [FindsBy(How = How.Id, Using = "logoutlink")]
         public IWebElement LogoutLink { get; set; }
-
-        /// <summary>Box witn time cells.</summary>
-        [FindsBy(How = How.ClassName, Using = "time")]
-        private IWebElement timeBoxes;      
-
-        ///// <summary>Warning icon.</summary>
-        //[FindsBy(How = How.ClassName, Using = "red warIcon")]
-        //private IWebElement WarningIcon;
-
-        /// <summary>Check box for electronic registration.</summary>
-        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a onlyER")]
-        public IWebElement CheckBoxElectronicRegistration { get; set; }
 
         /// <summary>Departure Box.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a textDepStat")]
@@ -59,8 +35,8 @@ namespace Pages
 
         /// <summary>Destination warning icon.</summary>
         [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message2")]
-        public IWebElement DestinationWarIcon { get; set; }        
-
+        public IWebElement DestinationWarIcon { get; set; }
+        
         /// <summary>Switch direction button.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed6176b")]
         public IWebElement SwitchDirectionButton { get; set; }
@@ -97,21 +73,49 @@ namespace Pages
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614a5\\3a 3\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614bb")]
         public IWebElement VitebskDestination { get; set; }
 
-        /// <summary>Logout link.</summary>
+        /// <summary>Mogilev departure link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed61701\\3a 4\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed61727")]
         public IWebElement MogilevDeparture { get; set; }
 
-        /// <summary>Logout link.</summary>
+        /// <summary>Mogilev destination link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614a5\\3a 4\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614bb")]
         public IWebElement MogilevDestination { get; set; }
 
-        /// <summary>Logout link.</summary>
+        /// <summary>Grodno departure link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed61701\\3a 5\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed61727")]
         public IWebElement GrodnoDeparture { get; set; }
 
-        /// <summary>Logout link.</summary>
+        /// <summary>Grodno destination link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614a5\\3a 5\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed614bb")]
         public IWebElement GrodnoDestination { get; set; }
+
+        /// <summary>Logout link.</summary>
+        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a dob")]
+        public IWebElement DateBox { get; set; }
+
+        /// <summary>Warning icon if wrong date inputed.</summary>
+        [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message3")]
+        public IWebElement DateWarIcon { get; set; }
+
+        /// <summary>Box witn time cells.</summary>
+        [FindsBy(How = How.ClassName, Using = "time")]
+        private IWebElement timeBoxes;
+
+        /// <summary>Unpessed Time Box </summary>
+        [FindsBy(How = How.ClassName, Using = "time_ch")]
+        public IList<IWebElement> TimeBoxUnpressed;        
+
+        /// <summary>Check box for electronic registration.</summary>
+        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a onlyER")]
+        public IWebElement CheckBoxElectronicRegistration { get; set; }
+
+        /// <summary>Continue button.</summary>
+        [FindsBy(How = How.ClassName, Using = "commandExButton")]
+        public IWebElement ContinueButton { get; set; }
+
+        /// <summary>Reset button.</summary>
+        [FindsBy(How = How.ClassName, Using = "commandExRedButton")]
+        public IWebElement ResetButton { get; set; }
 
         /// <summary>Departure Time Boxes.</summary>
         public IWebElement TimeBox(int cellNumber)
@@ -120,10 +124,11 @@ namespace Pages
             return timeCell[cellNumber];
         }
 
-        /// <summary>Reset button.</summary>
-        [FindsBy(How = How.ClassName, Using = "commandExRedButton")]
-        public IWebElement ResetButton { get; set; }
-        
+        /// <summary>Departure Time Boxes.</summary>
+        public void ClickTimeBox(int cellNumber)
+        {
+            timeCell[cellNumber].Click();
+        }
 
         /// <summary>Click the electronic registration box.</summary>
         public void ClickElectronicRegistrationBox()
@@ -149,13 +154,11 @@ namespace Pages
             ResetButton.Click();
         }
 
-
         ///<summary> Click continue button.</summary>
         public void SendDepartureBox(string station)
         {
             DepartureBox.SendKeys(station);
         }
-
 
         ///<summary> Click continue button.</summary>
         public void SendDestinationBox(string station)

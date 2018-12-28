@@ -23,7 +23,7 @@ namespace Pages
 
         /// <summary>Logout link.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a dob")]
-        public IWebElement DataBox { get; set; }
+        public IWebElement DateBox { get; set; }
 
         /// <summary>Warning icon if wrong date inputed.</summary>
         [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message3")]
@@ -37,9 +37,9 @@ namespace Pages
         [FindsBy(How = How.ClassName, Using = "time")]
         private IWebElement timeBoxes;      
 
-        /// <summary>Warning icon.</summary>
-        [FindsBy(How = How.ClassName, Using = "red warIcon")]
-        private IWebElement WarningIcon;
+        ///// <summary>Warning icon.</summary>
+        //[FindsBy(How = How.ClassName, Using = "red warIcon")]
+        //private IWebElement WarningIcon;
 
         /// <summary>Check box for electronic registration.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a onlyER")]
@@ -120,6 +120,11 @@ namespace Pages
             return timeCell[cellNumber];
         }
 
+        /// <summary>Reset button.</summary>
+        [FindsBy(How = How.ClassName, Using = "commandExRedButton")]
+        public IWebElement ResetButton { get; set; }
+        
+
         /// <summary>Click the electronic registration box.</summary>
         public void ClickElectronicRegistrationBox()
         {
@@ -127,15 +132,21 @@ namespace Pages
         }
 
         ///<summary> Send date to the date box.</summary>
-        public void SendDataBox(string date)
+        public void SendDateBox(string date)
         {
-            DataBox.SendKeys(date);
+            DateBox.SendKeys(date);
         }
 
         ///<summary> Click continue button.</summary>
         public void ClickContinueButton()
         {
             ContinueButton.Click() ;
+        }
+
+        ///<summary> Click continue button.</summary>
+        public void ClickResetButton()
+        {
+            ResetButton.Click();
         }
 
 

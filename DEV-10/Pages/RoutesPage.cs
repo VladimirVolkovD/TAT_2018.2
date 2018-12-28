@@ -17,6 +17,18 @@ namespace Pages
         public string minskText = "МИНСК-ПАССАЖИРСКИЙ"; 
         IList<IWebElement> timeCell = new List<IWebElement>();
 
+        /// <summary>Continue button.</summary>
+        [FindsBy(How = How.ClassName, Using = "commandExButton")]
+        public IWebElement ContinueButton { get; set; }
+
+        /// <summary>Logout link.</summary>
+        [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a dob")]
+        public IWebElement DataBox { get; set; }
+
+        /// <summary>Warning icon if wrong date inputed.</summary>
+        [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message3")]
+        public IWebElement DateWarIcon { get; set; }
+
         /// <summary>Logout link.</summary>
         [FindsBy(How = How.Id, Using = "logoutlink")]
         public IWebElement LogoutLink { get; set; }
@@ -37,9 +49,17 @@ namespace Pages
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a textDepStat")]
         public IWebElement DepartureBox { get; set; }
 
+        /// <summary>Departure warning icon.</summary>
+        [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message1")]
+        public IWebElement DepartureWarIcon { get; set; }
+
         /// <summary>Destination box.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a textArrStat")]
         public IWebElement DestinationBox { get; set; }
+
+        /// <summary>Destination warning icon.</summary>
+        [FindsBy(How = How.Id, Using = "viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_:form1:message2")]
+        public IWebElement DestinationWarIcon { get; set; }        
 
         /// <summary>Switch direction button.</summary>
         [FindsBy(How = How.CssSelector, Using = "#viewns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_\\3a form1\\3a ns_Z7_9HD6HG80NOK1E0ABJMNO3H30S1_j_id1591088840_5ed6176b")]
@@ -100,12 +120,36 @@ namespace Pages
             return timeCell[cellNumber];
         }
 
-        /// <summary>
-        /// Click the electronic registration box.
-        /// </summary>
+        /// <summary>Click the electronic registration box.</summary>
         public void ClickElectronicRegistrationBox()
         {
             CheckBoxElectronicRegistration.Click();
+        }
+
+        ///<summary> Send date to the date box.</summary>
+        public void SendDataBox(string date)
+        {
+            DataBox.SendKeys(date);
+        }
+
+        ///<summary> Click continue button.</summary>
+        public void ClickContinueButton()
+        {
+            ContinueButton.Click() ;
+        }
+
+
+        ///<summary> Click continue button.</summary>
+        public void SendDepartureBox(string station)
+        {
+            DepartureBox.SendKeys(station);
+        }
+
+
+        ///<summary> Click continue button.</summary>
+        public void SendDestinationBox(string station)
+        {
+            DestinationBox.SendKeys(station);
         }
     }
 }

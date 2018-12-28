@@ -59,9 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractChromeTest.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="LogInTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoutesTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -71,9 +71,9 @@
     <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logick\Logick.csproj">
-      <Project>{8cf00b3d-4683-48ab-9fd5-c53b9b8598a4}</Project>
-      <Name>Logick</Name>
+    <ProjectReference Include="..\Pages\Pages.csproj">
+      <Project>{5b5e587e-9922-43b4-b49e-eb548020809b}</Project>
+      <Name>Pages</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

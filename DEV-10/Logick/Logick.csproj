@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1CAE48F5-9892-4254-9DD0-3FD5FF3DBBDA}</ProjectGuid>
+    <ProjectGuid>{8CF00B3D-4683-48AB-9FD5-C53B9B8598A4}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DEV_10</RootNamespace>
-    <AssemblyName>DEV-10</AssemblyName>
+    <RootNamespace>Logick</RootNamespace>
+    <AssemblyName>Logick</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,14 +59,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\LoginMain.cs" />
-    <Compile Include="Pages\Routes.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pages\Pages.csproj">
+      <Project>{5b5e587e-9922-43b4-b49e-eb548020809b}</Project>
+      <Name>Pages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

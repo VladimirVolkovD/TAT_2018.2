@@ -5,42 +5,38 @@ namespace DEV_3
     /// <summary> 
     /// Decimal number converter to other numeral systems
     /// accept from the command line two arguments
-    /// and convert number (1 argument) in the new numeral system (2 argument)
+    /// and convert number (1 argument) in the new numeral system (2 argument).
     /// </summary> 
-    class Converter
+    public class Converter
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             try
-            {
+            {                
                 int number = int.Parse(args[0]);
-                int newBaseOfNumberSystem = int.Parse(args[1]);
-                if (newBaseOfNumberSystem < 2 || newBaseOfNumberSystem > 20)
-                {
-                    throw new ArgumentOutOfRangeException("wrong base of new numeral system.");
-                }
+                int newBaseOfNumberSystem = int.Parse(args[1]);                
                 NumeralSystemConverter convertedNumber = new NumeralSystemConverter(number, newBaseOfNumberSystem);
                 convertedNumber.DecimalToOtherNumeralSystem();
-                writeCovertedNumber(convertedNumber, number);
+                WriteCovertedNumber(convertedNumber, number);                
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("WrongNumberOfParametersException: You should enter two decimal numbers.");
             }
             catch (FormatException)
             {
-                Console.WriteLine("Exception message: strings contain wrong symbols or null.");
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine("Exception message: " + ex.ParamName);
+                Console.WriteLine("FormatException: You should enter only decimal numbers.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception message: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
         /// <summary>
-        /// Method depending on the sign of number correctly displays the converted number
+        /// Method depending on the sign of number correctly displays the converted number.
         /// </summary>
-        static void writeCovertedNumber(NumeralSystemConverter convertedNumber,int number)
+        static void WriteCovertedNumber(NumeralSystemConverter convertedNumber,int number)
         {
             if (convertedNumber.sign != 1)
             {

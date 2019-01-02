@@ -137,30 +137,33 @@ namespace Pages
         }
 
         ///<summary> Send date to the date box.</summary>
+        /// <param name="date.">Date.</param>
         public void SendDateBox(string date)
         {
             DateBox.SendKeys(date);
         }
 
-        ///<summary> Click continue button.</summary>
+        ///<summary>Click continue button.</summary>
         public void ClickContinueButton()
         {
             ContinueButton.Click() ;
         }
 
-        ///<summary> Click continue button.</summary>
+        ///<summary>Click reset button.</summary>
         public void ClickResetButton()
         {
             ResetButton.Click();
         }
 
-        ///<summary> Click continue button.</summary>
+        ///<summary>Send date to the departure box.</summary>
+        /// <param name="station.">Name of station.</param>
         public void SendDepartureBox(string station)
         {
             DepartureBox.SendKeys(station);
         }
 
-        ///<summary> Click continue button.</summary>
+        ///<summary>Send date to the destination box.</summary>
+        /// <param name="station.">Name of station.</param>
         public void SendDestinationBox(string station)
         {
             DestinationBox.SendKeys(station);

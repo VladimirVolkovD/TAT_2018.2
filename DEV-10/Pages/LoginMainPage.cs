@@ -31,7 +31,7 @@ namespace Pages
         /// <summary>
         /// Enter login in the login box.
         /// </summary>
-        /// <param name="Login."></param>
+        /// <param name="login.">Login.</param>
         public void EnterLogin(string login)
         {            
              Login.SendKeys(login);
@@ -40,7 +40,7 @@ namespace Pages
         /// <summary>
         /// Enter password in the password box.
         /// </summary>
-        /// <param name="Login."></param>
+        /// <param name="password.">Password.</param>
         public void EnterPassword(string password)
         {
            Password.SendKeys(password);

@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace DEV8
+﻿namespace DEV8
 {
     /// <summary>
-    /// Average price counter implementins method for command selection of specific type for object being transferred.
+    /// Average price counter implements method for command selection of specific type for object being transferred.
     /// </summary>
     class AveragePriceCounter : ICommand
     {
-        VehiclesStorage VehiclesStorage;
-        string Brand;
+        private readonly VehiclesStorage _vehiclesStorage;
+        private readonly string _brand;
 
         /// <summary>
         /// Constructor.
@@ -17,8 +15,8 @@ namespace DEV8
         /// <param name="brand">Brand, if necessary</param>
         public AveragePriceCounter(VehiclesStorage vehiclesStorage, string brand = null)
         {
-            VehiclesStorage = vehiclesStorage;
-            Brand = brand;
+            _vehiclesStorage = vehiclesStorage;
+            _brand = brand;
         }
 
         /// <summary>
@@ -26,7 +24,7 @@ namespace DEV8
         /// </summary>       
         public void Execute()
         {
-            VehiclesStorage.AveragePriceCounter(Brand);
+            _vehiclesStorage.AveragePriceCounter(_brand);
         }
     }
 }

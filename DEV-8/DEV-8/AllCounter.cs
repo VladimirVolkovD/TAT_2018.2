@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace DEV8
+﻿namespace DEV8
 {
     /// <summary>
     /// AllCounter implements method for command selection of specific type for object being transferred.
     /// </summary>
     class AllCounter : ICommand
     {
-        private VehiclesStorage VehiclesStorage;
+        private readonly VehiclesStorage _vehiclesStorage;
 
         /// <summary>
         /// Constructor.
@@ -15,7 +13,7 @@ namespace DEV8
         /// <param name="vehiclesStorage">Vehicle storage.</param>
         public AllCounter(VehiclesStorage vehiclesStorage)
         {
-            VehiclesStorage = vehiclesStorage;
+            _vehiclesStorage = vehiclesStorage;
         }
 
         /// <summary>
@@ -23,7 +21,7 @@ namespace DEV8
         /// </summary>       
         public void Execute()
         {
-            VehiclesStorage.AllCounter();
+            _vehiclesStorage.AllCounter();
         }
     }
 }

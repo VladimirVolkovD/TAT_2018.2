@@ -1,11 +1,11 @@
 ﻿namespace DEV8
 {
     /// <summary>
-    ///Brands counter implementins method for command selection of specific type for object being transferred.
+    ///Brands counter implementns method for command selection of specific type for object being transferred.
     /// </summary>
     class BrandsCounter : ICommand
     {
-        private VehiclesStorage VehiclesStorage;
+        private readonly VehiclesStorage _vehiclesStorage;
 
         /// <summary>
         /// Constructor.
@@ -13,7 +13,7 @@
         /// <param name="vehiclesStorage">Vehicle storage.</param>
         public BrandsCounter(VehiclesStorage vehiclesStorage)
         {
-            VehiclesStorage = vehiclesStorage;
+            _vehiclesStorage = vehiclesStorage;
         }
 
         /// <summary>
@@ -21,7 +21,7 @@
         /// </summary>        
         public void Execute()
         {         
-                VehiclesStorage.BrandsCounter();               
+                _vehiclesStorage.BrandsCounter();               
         }       
     }
 }

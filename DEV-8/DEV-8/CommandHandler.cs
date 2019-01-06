@@ -9,11 +9,11 @@ namespace DEV8
     /// </summary>
     class CommandHandler
     {
-        ICommand Command;
-        VehiclesStorage CarsStorage;
-        VehiclesStorage TruckStogare;
-        VehiclesStorage CurrentStorage;         
-        Stack<ICommand> CommandsHistory = new Stack<ICommand>();
+        private ICommand _command;
+        private readonly VehiclesStorage _carsStorage;
+        private readonly VehiclesStorage _truckStogare;
+        private VehiclesStorage _currentStorage;
+        private readonly Stack<ICommand> _commandsHistory = new Stack<ICommand>();
 
         /// <summary>
         /// Constructor.
@@ -22,8 +22,8 @@ namespace DEV8
         /// <param name="truckStogare">Trucks storage.</param>
         public CommandHandler(VehiclesStorage carsStorage, VehiclesStorage truckStogare)
         {
-            CarsStorage = carsStorage;
-            TruckStogare = truckStogare;
+            _carsStorage = carsStorage;
+            _truckStogare = truckStogare;
         }
 
         /// <summary>
@@ -32,33 +32,33 @@ namespace DEV8
         public void Show()
         {
             Console.Write("Enter the command for vehicle:\n  -Count_types Car(Truck)\n  -Сount_all Car(Truck)" +
-                    "\n  -Averagep_price Car(Truck)\n  -Average_PriceType Car(Truck)\n  -Execute\n  -Exit\n");
-            bool flag = true;
+                    "\n  -Average_price Car(Truck)\n  -Average_price 'Type' Car(Truck)\n  -Execute\n  -Exit\n");
+            var flag = true;
             while (flag)
             {
                 Console.Write(">");
-                Command = null;
-                string[] inputStrings = Console.ReadLine().Split(' ');
-                Commands commands = GetCommand(inputStrings);                
+                _command = null;
+                var inputStrings = Console.ReadLine()?.Split(' ');
+                var commands = GetCommand(inputStrings);  
                 switch (commands)
                 {
                     case Commands.Count_types:
-                        Command = new BrandsCounter(CurrentStorage);
+                        _commandsHistory.Push(new BrandsCounter(_currentStorage));
                         break;
                     case Commands.Count_all:
-                        Command = new AllCounter(CurrentStorage);
+                        _commandsHistory.Push(new AllCounter(_currentStorage));
                         break;
                     case Commands.Average_price:
-                        Command = new AveragePriceCounter(CurrentStorage);
+                        _commandsHistory.Push(new AveragePriceCounter(_currentStorage));
                         break;
-                    case Commands.Average_PriceType:
-                        Command = new AveragePriceCounter(CurrentStorage, inputStrings[2]);
+                    case Commands.Average_priceType:
+                        _commandsHistory.Push(new AveragePriceCounter(_currentStorage, inputStrings[2]));
                         break;
                     case Commands.Execute:
-                        Stack<ICommand> CommandsHistoryBuffer = new Stack<ICommand>(CommandsHistory);
-                        while (CommandsHistoryBuffer.Count > 0)
+                        var commandsHistoryBuffer = new Stack<ICommand>(_commandsHistory);
+                        while (commandsHistoryBuffer.Count > 0)
                         {
-                            CommandsHistoryBuffer.Pop().Execute();
+                            commandsHistoryBuffer.Pop().Execute();
                         }
                         break;
                     case Commands.Exit:
@@ -68,7 +68,6 @@ namespace DEV8
                         Console.Write("Unknown command. Try again.");
                         break;
                 }
-                Command?.Execute();
             }          
         }
 
@@ -79,41 +78,32 @@ namespace DEV8
         /// <returns>The command.</returns>
         private Commands GetCommand(string[] str)
         {
-            if ( (str.Length == 1) && (str[0].Equals("Execute")) )
-            {               
-                return Commands.Execute;
-            }
-            else if ((str.Length == 1) && (str[0].Equals("Exit")))
+            switch (str.Length)
             {
-                return Commands.Exit;
-            }
-            else if ( (str.Length == 2) && (str[0].Equals("Count_types")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck")) ))
-            {
-                CurrentStorage = str[1].Equals("Car") ? CarsStorage : TruckStogare;                              
-                CommandsHistory.Push(new BrandsCounter(CurrentStorage));                
-                return Commands.Count_types;
-            }
-            else if ((str.Length == 2) && (str[0].Equals("Count_all")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck"))))
-            {
-                CurrentStorage = str[1].Equals("Car") ? CarsStorage : TruckStogare;
-                CommandsHistory.Push(new AllCounter(CurrentStorage));
-                return Commands.Count_all;
-            }
-            else if ((str.Length == 2) && (str[0].Equals("Average_price")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck"))))
-            {
-                CurrentStorage = str[1].Equals("Car") ? CarsStorage : TruckStogare;
-                CommandsHistory.Push(new BrandsCounter(CurrentStorage));
-                return Commands.Average_price;
-            }
-            else if ((str.Length == 3) && (str[0].Equals("Average_price")) )
-            {
-                CurrentStorage = str[1].Equals("Car") ? CarsStorage : TruckStogare;
-                CommandsHistory.Push(new BrandsCounter(CurrentStorage));
-                return Commands.Average_PriceType;
-            }
-            else
-            {
-                return Commands.UnknownCommand;
+                case 1 when (str[0].Equals("Execute")):
+                    return Commands.Execute;
+
+                case 1 when (str[0].Equals("Exit")):
+                    return Commands.Exit;
+
+                case 2 when (str[0].Equals("Count_types")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck")) ):
+                    _currentStorage = str[1].Equals("Car") ? _carsStorage : _truckStogare;               
+                    return Commands.Count_types;
+
+                case 2 when (str[0].Equals("Count_all")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck"))):
+                    _currentStorage = str[1].Equals("Car") ? _carsStorage : _truckStogare;
+                    return Commands.Count_all;
+
+                case 2 when (str[0].Equals("Average_price")) && ((str[1].Equals("Car")) || (str[1].Equals("Truck"))):
+                    _currentStorage = str[1].Equals("Car") ? _carsStorage : _truckStogare;
+                    return Commands.Average_price;
+
+                case 3 when (str[0].Equals("Average_price")):
+                    _currentStorage = str[1].Equals("Car") ? _carsStorage : _truckStogare;
+                    return Commands.Average_priceType;
+
+                default:
+                    return Commands.UnknownCommand;
             }
         }
     }

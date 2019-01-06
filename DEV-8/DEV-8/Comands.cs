@@ -8,7 +8,7 @@
         Count_types,
         Count_all,
         Average_price,
-        Average_PriceType,
+        Average_priceType,
         Execute,
         UnknownCommand,
         Exit

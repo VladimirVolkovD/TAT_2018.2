@@ -6,10 +6,10 @@ namespace DEV8
     /// <summary>
     ///  Creates List of Vehicle based on XML file.
     /// </summary>
-    class ParserOfVehicle
+    internal class ParserOfVehicle
     {
-        List<Vehicle> Vehicles;
-        private static readonly ParserOfVehicle instance = new ParserOfVehicle();       
+        private List<Vehicle> _vehicles;
+        private static readonly ParserOfVehicle Instance = new ParserOfVehicle();       
 
         /// <summary>
         /// Initialize Singleton
@@ -22,7 +22,7 @@ namespace DEV8
         /// <returns>Instance.</returns>
         public static ParserOfVehicle GetInstance()
         {
-            return instance;
+            return Instance;
         }
 
         /// <summary>
@@ -32,45 +32,45 @@ namespace DEV8
         /// <returns>List of Vehicle.></returns>
         public List<Vehicle> GetVehicleList(string xmlFile)
         {
-            Vehicles = new List<Vehicle>();
-            XmlDocument xDoc = new XmlDocument();
+            _vehicles = new List<Vehicle>();
+            var xDoc = new XmlDocument();
             xDoc.Load(xmlFile);
-            XmlElement xRoot = xDoc.DocumentElement;
-            string typeOfVehicle = xRoot.ToString();
-            foreach (XmlNode xnode in xRoot)
+            var xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
             {
-                string brand = string.Empty;
-                string model = string.Empty;
-                int quantity = 0;
-                double unitCost = 0;
-
-                if (xnode.Attributes.Count > 0)
+                foreach (XmlNode xnode in xRoot)
                 {
-                    XmlNode attr = xnode.Attributes.GetNamedItem("Brand");
-                    brand = attr.Value;
-                }
-              
-                foreach (XmlNode childnode in xnode.ChildNodes)
-                {                    
-                    if (childnode.Name == "model")
+                    var brand = string.Empty;
+                    var model = string.Empty;
+                    var quantity = 0;
+                    double unitCost = 0;
+
+                    if (xnode.Attributes != null && xnode.Attributes.Count > 0)
                     {
-                        model = childnode.InnerText;  
+                        var attr = xnode.Attributes.GetNamedItem("Brand");
+                        brand = attr.Value;
                     }
 
-                    if (childnode.Name == "quantity")
+                    foreach (XmlNode childnode in xnode.ChildNodes)
                     {
-                        quantity = int.Parse(childnode.InnerText.ToString());
+                        switch (childnode.Name)
+                        {
+                            case "model":
+                                model = childnode.InnerText;
+                                break;
+                            case "quantity":
+                                quantity = int.Parse(childnode.InnerText);
+                                break;
+                            case "price":
+                                unitCost = double.Parse(childnode.InnerText);
+                                break;
+                        }
                     }
-
-                    if (childnode.Name == "price")
-                    {
-                        unitCost = double.Parse(childnode.InnerText);
-                    }
+                    var currentCar = new Vehicle(brand, model, quantity, unitCost);
+                    _vehicles.Add(currentCar);
                 }
-                Vehicle currenttCar = new Vehicle(brand, model, quantity, unitCost);
-                Vehicles.Add(currenttCar);                
             }
-            return Vehicles;
+            return _vehicles;
         }   
     }
 }

@@ -3,14 +3,14 @@
     /// <summary>
     /// It's an entry point in the program.
     /// </summary>
-    class EntryPoint
+    internal class EntryPoint
     {    
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            ParserOfVehicle parser =  ParserOfVehicle.GetInstance();
-            VehiclesStorage carsStorage = new VehiclesStorage("Cars",parser.GetVehicleList(args[0]));
-            VehiclesStorage truckStogare = new VehiclesStorage("Trucks",parser.GetVehicleList(args[1]));
-            CommandHandler commandHandler = new CommandHandler(carsStorage, truckStogare);
+            var parser =  ParserOfVehicle.GetInstance();
+            var carsStorage = new VehiclesStorage("Cars",parser.GetVehicleList(args[0]));
+            var truckStogare = new VehiclesStorage("Trucks",parser.GetVehicleList(args[1]));
+            var commandHandler = new CommandHandler(carsStorage, truckStogare);
             commandHandler.Show();
         }
     }

@@ -11,7 +11,7 @@ namespace DEV8
     /// </summary>
     public class VehiclesStorage 
     {
-        string TypeOfVehicle;
+        private readonly string _typeOfVehicle;
         public List<Vehicle> Vehicles { get;}
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace DEV8
         /// </summary>
         public VehiclesStorage(string typeOfVehicle ,List<Vehicle> newList)
         {
-            TypeOfVehicle = typeOfVehicle;
+            _typeOfVehicle = typeOfVehicle;
             Vehicles = newList;        
         }
 
@@ -29,8 +29,8 @@ namespace DEV8
         /// </summary>
         public void AllCounter()
         {
-            int quantityOfAllVehicles = Vehicles.Select(i => i.Quantity).Sum(x => x);
-            Console.Write("Total number of "+ TypeOfVehicle+ ": " + quantityOfAllVehicles + "\n");            
+            var quantityOfAllVehicles = Vehicles.Select(i => i.Quantity).Sum(x => x);
+            Console.Write("Total number of "+ _typeOfVehicle+ ": " + quantityOfAllVehicles + "\n");            
         }
 
         /// <summary>
@@ -40,21 +40,21 @@ namespace DEV8
         /// <param name="arg">Brand for calculate(if necessary).</param>
         public void AveragePriceCounter(string arg = null)
         {
-            double result = 0.0;
+            var result = 0.0;
             var tempCarsList = Vehicles;
-            string returnedString = String.Empty;
+            string returnedString;
             if (!string.IsNullOrEmpty(arg) && Vehicles.Exists(product => product.Brand.Equals(arg)))
             {
-                returnedString = "Average cost of a " + TypeOfVehicle + " in the brand " + arg.ToString() + ": ";
+                returnedString = "Average cost of a " + _typeOfVehicle + " with the brand " + arg + ": ";
                 tempCarsList = Vehicles.FindAll(product => product.Brand.Equals(arg));
             }
             else
             {
-                returnedString = "Average " + TypeOfVehicle + " cost: ";
+                returnedString = "Average " + _typeOfVehicle + " cost: ";
             }
             foreach (var product in tempCarsList)
             {
-                result += product.unitCost;
+                result += product.UnitCost;
             }
             Console.Write(returnedString + " " + (result / tempCarsList.Count) + "\n");
         }
@@ -64,8 +64,8 @@ namespace DEV8
         /// </summary>
         public void BrandsCounter()
         {
-            int quantityOfBrands = Vehicles.GroupBy(i => i.Brand).Count();
-            Console.Write("Number of " + TypeOfVehicle + " brands: " + quantityOfBrands + "\n");
+            var quantityOfBrands = Vehicles.GroupBy(i => i.Brand).Count();
+            Console.Write("Number of " + _typeOfVehicle + " brands: " + quantityOfBrands + "\n");
         }
     }
 }

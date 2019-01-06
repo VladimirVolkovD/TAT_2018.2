@@ -10,7 +10,7 @@ namespace ControlTask
 
         public int CountMatches(CoupleOfCharacters compare)
         {
-            AmountOfmatches += ((this.FirstCharacter == compare.FirstCharacter) && (this.SecondCharacter == compare.SecondCharacter)) ? 1 : 0;
+            AmountOfmatches += ((FirstCharacter == compare.FirstCharacter) && (SecondCharacter == compare.SecondCharacter)) ? 1 : 0;
             return AmountOfmatches;
         }
 

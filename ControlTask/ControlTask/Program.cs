@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace ControlTask
 {
-    class StringManager
+    internal class StringManager
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace ControlTask
                 throw new Exception("Enter a non-empty string");                
             }
                 var EntryPointObject = new StringManager();
-                var couple = EntryPointObject.FindMostСommonSequence(args[0]);
+                var couple = EntryPointObject.FindMostCommonSequence(args[0]);
                 couple.Show();
             }
             catch(Exception ex)
@@ -28,21 +28,21 @@ namespace ControlTask
             }
         }
 
-        public CoupleOfCharacters FindMostСommonSequence(String inputedString)
+        public CoupleOfCharacters FindMostCommonSequence(String inputedString)
         {
             var currentCouple = new CoupleOfCharacters();
             var coupleForCompare = new CoupleOfCharacters();
             var maxMatchesCouple = new CoupleOfCharacters();
             var List = new List<CoupleOfCharacters>();
 
-            for (int i = 0; i < inputedString.Length - 1; i++)
+            for (var i = 0; i < inputedString.Length - 1; i++)
             {
                 currentCouple.FirstCharacter = inputedString[i];
                 currentCouple.SecondCharacter = inputedString[++i];
                 currentCouple.AmountOfmatches = 0;
                 i--;
 
-                for (int j = i; j < inputedString.Length - 1; j++)
+                for (var j = i; j < inputedString.Length - 1; j++)
                 {
                     coupleForCompare.FirstCharacter = inputedString[j];
                     coupleForCompare.SecondCharacter = inputedString[++j];

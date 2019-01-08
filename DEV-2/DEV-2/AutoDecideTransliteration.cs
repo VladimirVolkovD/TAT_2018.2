@@ -7,47 +7,50 @@ namespace DEV_2
 {
     /// <summary>
     /// The AutoDecideTransliteration class accepts a string in Russian (or in Latin) language,
-    /// converts the string to lower case, and transliterate to Latin (Russian) language
+    /// converts the string to lower case, and transliterate to Latin (Russian) language.
     /// </summary>
     class AutoDecideTransliteration
     {
         /// <summary> 
         /// Method autoTransliteration
         /// function for determine from which language to which we will transliteration the string
-        /// and catches exceptions
+        /// and catches exceptions.
         /// </summary> 
-        /// <param name="stringArgument">String, which was inputed</param>
-        public void AutoTransliteration(ref String stringArgument)
+        /// <param name="stringArgument">String, which was inputed.</param>
+        public void AutoTransliteration(ref string stringArgument)
         {
             stringArgument = stringArgument.ToLower();
-            string checkString = String.Copy(stringArgument);
-            checkString = String.Concat(checkString.OrderBy(c => c));
+            var checkString = string.Copy(stringArgument);
+            checkString = string.Concat(checkString.OrderBy(c => c));
             checkString = checkString.Replace(" ", string.Empty);
-            if (Enumerable.Range(1072, 34).Contains(checkString[0]) && (Enumerable.Range(1072, 34).Contains(checkString[checkString.Length - 1])))//check for Russian symbol
+            //Check for Russian symbol, it's Cyrillic a.
+            if (Enumerable.Range('а', 34).Contains(checkString[0]) &&
+                (Enumerable.Range('а', 34).Contains(checkString[checkString.Length - 1])))
             {
                 CyrillicToLatinTransliteration(ref stringArgument);
-            }
-            else if (Enumerable.Range(97, 26).Contains(checkString[0]) && (Enumerable.Range(97, 26).Contains(checkString[checkString.Length - 1])))//check for Latin symbol
+            }//Check for Latin symbol, it's Latin a.
+            else if (Enumerable.Range('a', 26).Contains(checkString[0]) &&
+                     (Enumerable.Range('a', 26).Contains(checkString[checkString.Length - 1])))
             {
                 LatinToCyrillicTransliteration(ref stringArgument);
             }
             else
             {
                 Console.WriteLine("The string must contain only Russian or English letters");
-                System.Environment.Exit(0);
+                Environment.Exit(0);
             }
         }
 
-	/// <summary> 
-	/// Method CyrillicToLatinTransliteration
-	/// Function for transliteration string from cyrillic to latin
-	/// </summary> 
-	/// <param name="stringArgument">String, which was inputed</param>
-        static void CyrillicToLatinTransliteration(ref String stringArgument)
+        /// <summary> 
+        /// Method CyrillicToLatinTransliteration
+        /// Function for transliteration string from Cyrillic to Latin.
+        /// </summary> 
+        /// <param name="stringArgument">String for transliteration.</param>
+        static void CyrillicToLatinTransliteration(ref string stringArgument)
         {
-            StringBuilder transliteratedString = new StringBuilder();
+            var transliteratedString = new StringBuilder();
             transliteratedString.Append(stringArgument);
-            Dictionary<string, string> cyrillicToLatinDictionary = new Dictionary<string, string>
+            var cyrillicToLatinDictionary = new Dictionary<string, string>
             {
                 ["а"] = "a",
                 ["б"] = "b",
@@ -76,18 +79,16 @@ namespace DEV_2
                 ["ч"] = "ch",
                 ["ш"] = "sh",
                 ["щ"] = "sch",
-                ["ъ"] = String.Empty,
+                ["ъ"] = string.Empty,
                 ["ы"] = "y",
-                ["ь"] = String.Empty,
+                ["ь"] = string.Empty,
                 ["э"] = "e",
                 ["ю"] = "yu",
                 ["я"] = "ya",
-                ["ѐ"] = String.Empty
-		    
-
+                ["ѐ"] = string.Empty
             };
 
-            foreach (string i in cyrillicToLatinDictionary.Keys)
+            foreach (var i in cyrillicToLatinDictionary.Keys)
             {
                 transliteratedString.Replace(i, cyrillicToLatinDictionary[i]);
             }
@@ -95,16 +96,16 @@ namespace DEV_2
             stringArgument = transliteratedString.ToString();
         }
 
-	/// <summary> 
-	/// Method LatinToCyrillicTransliteration
-	/// Function for transliteration string from latin to cyrillic
-	/// </summary> 
-	/// <param name="stringArgument">String, which was inputed</param>
-        static void LatinToCyrillicTransliteration(ref String stringArgument)
+        /// <summary> 
+        /// Method LatinToCyrillicTransliteration
+        /// Function for transliteration string from Latin to Cyrillic.
+        /// </summary> 
+        /// <param name="stringArgument">String for transliteration.</param>
+        static void LatinToCyrillicTransliteration(ref string stringArgument)
         {
-            StringBuilder transliteratedString = new StringBuilder();
+            var transliteratedString = new StringBuilder();
             transliteratedString.Append(stringArgument);
-            Dictionary<string, string> cyrillicToLatinDictionary = new Dictionary<string, string>
+            var cyrillicToLatinDictionary = new Dictionary<string, string>
             {
                 ["sch"] = "щ",
                 ["sh"] = "ш",
@@ -135,13 +136,13 @@ namespace DEV_2
                 ["u"] = "у",
                 ["f"] = "ф",
                 ["y"] = "ы",
-                ["j"] = String.Empty,
-                ["h"] = String.Empty,
-                ["w"] = String.Empty,
-                ["q"] = String.Empty
+                ["j"] = string.Empty,
+                ["h"] = string.Empty,
+                ["w"] = string.Empty,
+                ["q"] = string.Empty
             };
 
-            foreach (string i in cyrillicToLatinDictionary.Keys)
+            foreach (var i in cyrillicToLatinDictionary.Keys)
             {
                 transliteratedString.Replace(i, cyrillicToLatinDictionary[i]);
             }

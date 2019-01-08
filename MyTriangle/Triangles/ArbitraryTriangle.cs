@@ -1,4 +1,6 @@
-﻿namespace MyTrianlges
+﻿using MyTrianlges;
+
+namespace MyTriangle.Triangles
 {
     /// <summary>
     /// Represent entity of abitrary triangle.

@@ -1,4 +1,6 @@
-﻿namespace MyTrianlges
+﻿using MyTrianlges;
+
+namespace MyTriangle.TriangleBuilders
 {
     /// <summary>
     ///  Represent entity of triangle builder.
@@ -6,10 +8,10 @@
     abstract class TriangleBuilder
     {
         //Next triangle builder object.
-        public TriangleBuilder NextBuilder;
+        public TriangleBuilder nextBuilder;
 
         //Сonstant for calculation accuracy.
-        public const double ACCURACY = 10E-4;
+        public const double Accuracy = 10E-4;
 
         /// <summary>
         /// Method for overriding, realizes creating the triangle.      

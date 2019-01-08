@@ -1,15 +1,16 @@
 ﻿using System;
+using MyTrianlges;
 
-namespace MyTrianlges
+namespace MyTriangle.Triangles
 {
     /// <summary>
     /// Represent entity of equilateral triangle with method for calculate area of equilateral triangle.
     /// </summary>
     class EquilateralTriangle : Triangle
     {
-        Point firstPoint;
-        Point secondPoint;
-        Point thirdPoint;
+        private Point _firstPoint;
+        private Point _secondPoint;
+        private Point _thirdPoint;
 
         /// <summary>
         ///  Сonstructor for equilateral triangle.
@@ -19,9 +20,9 @@ namespace MyTrianlges
         /// <param name="thirdPoint">Third vertex of the triangle.</param>
         public EquilateralTriangle(Point firstPoint, Point secondPoint, Point thirdPoint)
         {
-            this.firstPoint = firstPoint;
-            this.secondPoint = secondPoint;
-            this.thirdPoint = thirdPoint;            
+            _firstPoint = firstPoint;
+            _secondPoint = secondPoint;
+            _thirdPoint = thirdPoint;            
         }
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace MyTrianlges
         /// <returns>Area of the equilateral triangle.</returns>      
         public override double GetSquare()
         {
-            return (Math.Pow(firstPoint.GetDistance(secondPoint),2)* Math.Sqrt(3))/4;
+            return (Math.Pow(_firstPoint.GetDistance(_secondPoint),2)* Math.Sqrt(3))/4;
         }
     }
 }

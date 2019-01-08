@@ -1,4 +1,6 @@
-﻿namespace MyTrianlges
+﻿using MyTrianlges;
+
+namespace MyTriangle.Triangles
 {
     /// <summary>
     /// Represent entity of right triangle with method for calculate area of right triangle.

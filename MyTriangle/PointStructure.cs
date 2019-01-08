@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyTrianlges
+namespace MyTriangle
 {
     /// <summary>
     /// Represent Point on a plane, consist of 2 coordinates(x and y).
@@ -29,7 +29,7 @@ namespace MyTrianlges
         /// <returns>Distance between two points.</returns>
         public double GetDistance(Point second)
         {
-            return Math.Sqrt(Math.Pow((second.x - this.x), 2) + Math.Pow((second.y - this.y), 2));
+            return Math.Sqrt(Math.Pow((second.x - x), 2) + Math.Pow((second.y - y), 2));
         }
     }
 }

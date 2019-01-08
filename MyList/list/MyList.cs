@@ -1,6 +1,7 @@
 ﻿using System;
+using Car;
 
-namespace Car
+namespace list
 {
     /// <summary>
     /// MyList class represents  list of objects.
@@ -11,82 +12,82 @@ namespace Car
         /// <summary>
         /// Store for the first element of list
         /// </summary>
-        private Node head;
+        private Node _head;
 
         /// <summary>
         /// Initialize new list without element
         /// </summary>
         public MyList()
         {
-            Node headNode = new Node();
-            head = headNode;
+            var headNode = new Node();
+            _head = headNode;
         }
 
         /// <summary>
         /// Initialize new list with head element
         /// </summary>
         /// <param name="headCar">Object for adding in head element of list</param>
-        public MyList(Car headCar)
+        public MyList(Car.Car headCar)
         {
-            Node headNode = new Node(headCar);
-            head = headNode;
+            var headNode = new Node(headCar);
+            _head = headNode;
         }
 
         /// <summary>
         ///  Add new element in head of list
         /// </summary>
         /// <param name="newCar">Object for adding in head element of list</param>
-        public void AddHead(Car newCar)
+        public void AddHead(Car.Car newCar)
         {
-            Node currentNode = new Node(newCar);
-            currentNode.nextCar = head;
-            head.previous = currentNode;
-            head = currentNode;
+            var currentNode = new Node(newCar);
+            currentNode.NextCar = _head;
+            _head.Previous = currentNode;
+            _head = currentNode;
         }
 
         /// <summary>
         /// Add new element in list
         /// </summary>
         /// <param name="newCar">Object for adding in list</param>
-        public void Add(Car newCar)
+        public void Add(Car.Car newCar)
         {
-            if (head.Car == null)
+            if (_head.Car == null)
             {
-                head = new Node(newCar);
+                _head = new Node(newCar);
             }
             else
             {
-                Node tempNode = head;
-                Node newNode = new Node(newCar);
-                while (tempNode.nextCar != null)
+                Node tempNode = _head;
+                var newNode = new Node(newCar);
+                while (tempNode.NextCar != null)
                 {
-                    tempNode = tempNode.nextCar;
+                    tempNode = tempNode.NextCar;
                 }   
                 
-                tempNode.nextCar = newNode;
-                newNode.previous = tempNode;
+                tempNode.NextCar = newNode;
+                newNode.Previous = tempNode;
             }
         }
 
         /// <summary>
-        /// Searches for objects with similar fields to passed object
+        /// Searches for objects with at least one similar fields to passed object.
         /// </summary>
         /// <param name="Car">The fields of this object will be used to search for similar objects.</param>
         /// <returns>List of found objects</returns>
-        public MyList Search(Car Car)
+        public MyList Search(Car.Car Car)
         {
-            Node currentNode = head;
-            MyList SearchResult = new MyList();
+            Node currentNode = _head;
+            var searchResult = new MyList();
             while (currentNode != null)
             {
                 if ((currentNode.Car.Brand == Car.Brand) || (currentNode.Car.Color == Car.Color) || (currentNode.Car.Model == Car.Model))
                 {
-                    SearchResult.Add(new Car(currentNode.Car));
-                    currentNode = currentNode.nextCar;
+                    searchResult.Add(new Car.Car(currentNode.Car));
                 }
+                currentNode = currentNode.NextCar;
             }
 
-            return SearchResult;
+            return searchResult;
         }
 
         /// <summary>
@@ -94,11 +95,11 @@ namespace Car
         /// </summary>
         public void Out()
         {
-            Node currentNode = head;
+            Node currentNode = _head;
             while (currentNode != null)
             {
                 Console.WriteLine("you car is "+ currentNode.Car.Brand + " model " + currentNode.Car.Model + " color "+ currentNode.Car.Color);
-                currentNode = currentNode.nextCar;
+                currentNode = currentNode.NextCar;
             }
         }   
     }

@@ -1,6 +1,8 @@
 ﻿using System;
+using MyTriangle.Triangles;
+using MyTrianlges;
 
-namespace MyTrianlges
+namespace MyTriangle.TriangleBuilders
 {
     /// <summary>
     ///  Represent entity of right triangle builder with some methods.
@@ -13,7 +15,7 @@ namespace MyTrianlges
         /// <param name="nextBuilder">Next triangle builder object.</param>
         public RightTriangleBuilder(TriangleBuilder nextBuilder)
         {
-            NextBuilder = nextBuilder;           
+            this.nextBuilder = nextBuilder;           
         }
 
         /// <summary>
@@ -31,15 +33,15 @@ namespace MyTrianlges
 
             if (ValidationOfCoordinates(firstDistance, secondDistance, thirdDistance))
             {
-                if ((Math.Pow(firstDistance, 2) + (Math.Pow(secondDistance, 2)) - Math.Pow(thirdDistance, 2) < ACCURACY) ||
-                    (Math.Pow(firstDistance, 2) + (Math.Pow(thirdDistance, 2)) - Math.Pow(secondDistance, 2) < ACCURACY) ||
-                    (Math.Pow(thirdDistance, 2) + (Math.Pow(secondDistance, 2)) - Math.Pow(firstDistance, 2) < ACCURACY))
+                if ((Math.Pow(firstDistance, 2) + (Math.Pow(secondDistance, 2)) - Math.Pow(thirdDistance, 2) < Accuracy) ||
+                    (Math.Pow(firstDistance, 2) + (Math.Pow(thirdDistance, 2)) - Math.Pow(secondDistance, 2) < Accuracy) ||
+                    (Math.Pow(thirdDistance, 2) + (Math.Pow(secondDistance, 2)) - Math.Pow(firstDistance, 2) < Accuracy))
                 {
                     return new RightTriangle(firstPoint, secondPoint, thirdPoint);
                 }
                 else
                 {
-                    return NextBuilder.CreateTriangle(firstPoint, secondPoint, thirdPoint);
+                    return nextBuilder.CreateTriangle(firstPoint, secondPoint, thirdPoint);
                 }
             }
             else
@@ -56,16 +58,10 @@ namespace MyTrianlges
         /// <param name="thirdDistance">Length of the Third side of the triangle.</param>
         /// <returns>Bool value.</returns>
         bool ValidationOfCoordinates(double firstDistance, double secondDistance, double thirdDistance)
-        {       
-            if (10E-4 < (firstDistance - secondDistance + thirdDistance) && 10E-4 < (secondDistance - firstDistance + thirdDistance)
-                && 10E-4 < (thirdDistance - firstDistance + secondDistance))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        {
+            return 10E-4 < (firstDistance - secondDistance + thirdDistance)
+                             && 10E-4 < (secondDistance - firstDistance + thirdDistance)
+                                 && 10E-4 < (thirdDistance - firstDistance + secondDistance);
         }
     }
 }

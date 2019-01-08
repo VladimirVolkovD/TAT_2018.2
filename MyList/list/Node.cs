@@ -1,13 +1,13 @@
-﻿namespace Car
+﻿namespace list
 {
     /// <summary>
     /// Represents a list element
     /// </summary>
     class Node
     {
-        public Car Car { get; set; }
-        public Node nextCar {get;  set;}
-        public Node previous {get;  set;}
+        public Car.Car Car { get; set; }
+        public Node NextCar {get;  set;}
+        public Node Previous {get;  set;}
 
         /// <summary>
         /// Initialize new node with empty fields
@@ -20,7 +20,7 @@
         /// Initialize new node with field Car
         /// </summary>
         /// <param name="newCar">Object to add like value for field car</param>
-        public Node(Car newCar)
+        public Node(Car.Car newCar)
         {
             Car = newCar;
         }

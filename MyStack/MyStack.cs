@@ -6,21 +6,21 @@ namespace Stack
     /// Represents a variable size last-in-first-out (LIFO)
     /// collection of instances of the same specified type.
     /// </summary>
-    /// <typeparam name="T">Generic data type</typeparam>
+    /// <typeparam name="T">Generic data type.</typeparam>
     class MyStack<T>
     {
-        private int maxSize;
-        private int actualSize;
-        private T[] StackArr;
+        private int _maxSize;
+        private int _actualSize;
+        private T[] _stackArr;
 
         /// <summary>
-        /// Initializes a new instance of the MyStack class that is empty
+        /// Initializes a new instance of the MyStack class that is empty.
         /// </summary>
         public MyStack()
         {
-            StackArr = new T[1];
-            actualSize = 0;
-            maxSize = 1;
+            _stackArr = new T[1];
+            _actualSize = 0;
+            _maxSize = 1;
         }
 
         /// <summary>
@@ -29,43 +29,43 @@ namespace Stack
         /// <param name="initialCapacity"></param>
         public MyStack(int initialCapacity)
         {
-            StackArr = new T[initialCapacity];
-            actualSize = initialCapacity;
-            maxSize = initialCapacity;
+            _stackArr = new T[initialCapacity];
+            _actualSize = initialCapacity;
+            _maxSize = initialCapacity;
         }
 
         /// <summary>
-        /// Resizes stack to new capacity  
+        /// Resizes stack to new capacity.
         /// </summary>
-        /// <param name="newCapacity">Value of new capacity </param>
+        /// <param name="newCapacity">Value of new capacity.</param>
         public void Resize(int newCapacity)
         {
-            Array.Resize(ref StackArr, newCapacity);
-            maxSize = newCapacity;
-            if (newCapacity < actualSize)
+            Array.Resize(ref _stackArr, newCapacity);
+            _maxSize = newCapacity;
+            if (newCapacity < _actualSize)
             {
-                actualSize = newCapacity;
+                _actualSize = newCapacity;
             }
         }
 
         /// <summary>
         /// Inserts an object at the top of the stack.
         /// </summary>
-        /// <param name="newValue">The value of the new element for add</param>
+        /// <param name="newValue">The value of the new element for add.</param>
         public void Push(T newValue)
         {
-            if ((maxSize == actualSize) && (maxSize != 0))
+            if ((_maxSize == _actualSize) && (_maxSize != 0))
             {
-                Array.Resize(ref StackArr, StackArr.Length + 1);
-                StackArr[StackArr.Length - 1] = newValue;
-                actualSize = StackArr.Length;
-                maxSize = StackArr.Length;
-                System.Console.WriteLine("stack size was increased");
+                Array.Resize(ref _stackArr, _stackArr.Length + 1);
+                _stackArr[_stackArr.Length - 1] = newValue;
+                _actualSize = _stackArr.Length;
+                _maxSize = _stackArr.Length;
+                Console.WriteLine("stack size was increased");
             }
             else
             {
-                StackArr[actualSize] = newValue;
-                actualSize++;
+                _stackArr[_actualSize] = newValue;
+                _actualSize++;
             }
         }
 
@@ -74,13 +74,13 @@ namespace Stack
         /// </summary>
         /// <returns>
         /// Returns the object at the top of the stack
-        /// or null if stack is empty
+        /// or null if stack is empty.
         /// </returns>
         public T GetHead()
         {
-            if (StackArr != null)
+            if (_stackArr != null)
             {
-                return StackArr[StackArr.Length - 1];
+                return _stackArr[_stackArr.Length - 1];
             }
 
             return default(T);
@@ -92,16 +92,16 @@ namespace Stack
         /// <returns>The object at the top of the stack or null if stack is empty.</returns>  
         public T Pop()
         {
-            if (actualSize > 0)
+            if (_actualSize > 0)
             {
-                T returnableElement = StackArr[actualSize - 1];
-                StackArr[actualSize - 1] = default(T);
-                actualSize--;
+                T returnableElement = _stackArr[_actualSize - 1];
+                _stackArr[_actualSize - 1] = default(T);
+                _actualSize--;
                 return returnableElement;
             }
             else
             {
-                System.Console.WriteLine("Stack is empty");
+                Console.WriteLine("Stack is empty");
                 return default(T);
             }
         }

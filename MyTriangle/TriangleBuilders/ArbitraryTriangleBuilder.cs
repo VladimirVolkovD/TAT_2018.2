@@ -1,4 +1,7 @@
-﻿namespace MyTrianlges
+﻿using MyTriangle.Triangles;
+using MyTrianlges;
+
+namespace MyTriangle.TriangleBuilders
 {
     /// <summary>
     ///  Represent entity of arbitrary triangle builder.    
@@ -11,7 +14,7 @@
         /// <param name="nextBuilder">Next triangle builder object.</param>
         public ArbitraryTriangleBuilder(TriangleBuilder nextBuilder)
         {
-            NextBuilder = nextBuilder;            
+            this.nextBuilder = nextBuilder;            
         }
 
         /// <summary>

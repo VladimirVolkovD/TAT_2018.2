@@ -1,6 +1,7 @@
 ﻿using System;
+using MyTriangle.TriangleBuilders;
 
-namespace MyTrianlges
+namespace MyTriangle
 {
     /// <summary>
     /// Entry point.
@@ -8,25 +9,25 @@ namespace MyTrianlges
     class EntryPoint
     {
         /// <summary>
-        /// The entry point of the program, where the program control starts and ends.
+        /// The entry point of the program, where method accepts coordinates of triangle vertices
+        /// and show square of triangle.
         /// </summary>
-        /// <param name="args">The command-line arguments.</param>
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
                 TriangleBuilder builder = new RightTriangleBuilder(new EquilateralTriangleBuilder(new ArbitraryTriangleBuilder(null)));
-                Point AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-                Point BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-                Point CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
-                Triangle myTriangle = builder.CreateTriangle(AB, BC, CA);                
-                System.Console.WriteLine("square = " + myTriangle.GetSquare());
-                System.Console.ReadKey();
+                var AB = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+                var BC = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+                var CA = new Point(double.Parse(Console.ReadLine()), (double.Parse(Console.ReadLine())));
+                var myTriangle = builder.CreateTriangle(AB, BC, CA);                
+                Console.WriteLine("you triangle is " + myTriangle .GetType() + ":square = " + myTriangle.GetSquare());
+                Console.ReadKey();
             }
             catch (Exception error)
             {
                 Console.WriteLine("Error: " + error.Message);
-                System.Console.ReadKey();
+                Console.ReadKey();
             }
         }
     }

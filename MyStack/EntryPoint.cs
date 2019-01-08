@@ -2,9 +2,9 @@
 
 namespace Stack
 {
-    class Program
+    class EntryPoint
     {
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
@@ -13,9 +13,9 @@ namespace Stack
                 stack.Push(1);
                 stack.Push(2);
                 stack.Push(3);
-                int i = stack.Pop();
+                var i = stack.Pop();
                 Console.WriteLine("pop: " + i);
-                Console.WriteLine("Headr: " + stack.GetHead());
+                Console.WriteLine("Head: " + stack.GetHead());
                 Console.ReadLine();
             }
             catch (Exception error)

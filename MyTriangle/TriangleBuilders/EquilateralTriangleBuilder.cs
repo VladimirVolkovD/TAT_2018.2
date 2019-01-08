@@ -1,4 +1,7 @@
-﻿namespace MyTrianlges
+﻿using MyTriangle.Triangles;
+using MyTrianlges;
+
+namespace MyTriangle.TriangleBuilders
 {
     /// <summary>
     ///  Represent entity of equilateral triangle builder.
@@ -11,7 +14,7 @@
         /// <param name="nextBuilder">Next triangle builder object.</param>
         public EquilateralTriangleBuilder(TriangleBuilder nextBuilder)
         {
-            NextBuilder = nextBuilder;            
+            this.nextBuilder = nextBuilder;            
         }
 
         /// <summary>
@@ -27,13 +30,13 @@
             double secondDistance = secondPoint.GetDistance(thirdPoint);
             double thirdDistance = thirdPoint.GetDistance(firstPoint);
 
-            if ( ((firstDistance - secondDistance) < ACCURACY) && ((secondDistance -thirdDistance) < ACCURACY) )
+            if ( ((firstDistance - secondDistance) < Accuracy) && ((secondDistance -thirdDistance) < Accuracy) )
             {
                 return new EquilateralTriangle(firstPoint, secondPoint, thirdPoint);
             }
             else
             {
-                return NextBuilder.CreateTriangle(firstPoint, secondPoint, thirdPoint);
+                return nextBuilder.CreateTriangle(firstPoint, secondPoint, thirdPoint);
             }
         }
     }

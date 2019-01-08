@@ -12,7 +12,6 @@ namespace DEV_3
         public static void Main(string[] args)
         {
             try
-<<<<<<< HEAD
             {
                 var number = int.Parse(args[0]);
                 var newBaseOfNumberSystem = int.Parse(args[1]);
@@ -20,14 +19,7 @@ namespace DEV_3
                 
                 Console.WriteLine("Number in decimal = {0} in the {1} numeral system  = {2}", number,
                     newBaseOfNumberSystem, numeralSystemConverter.DecimalToOtherNumeralSystem());
-=======
-            {                
-                int number = int.Parse(args[0]);
-                int newBaseOfNumberSystem = int.Parse(args[1]);                
-                NumeralSystemConverter convertedNumber = new NumeralSystemConverter(number, newBaseOfNumberSystem);
-                convertedNumber.DecimalToOtherNumeralSystem();
-                WriteCovertedNumber(convertedNumber, number);                
->>>>>>> 64eab100493a289255a16e47bf771741751d31e7
+
             }
             catch (IndexOutOfRangeException)
             {
@@ -42,24 +34,7 @@ namespace DEV_3
                 Console.WriteLine(ex.Message);
             }
 
-<<<<<<< HEAD
             Console.ReadKey();
-=======
-        /// <summary>
-        /// Method depending on the sign of number correctly displays the converted number.
-        /// </summary>
-        static void WriteCovertedNumber(NumeralSystemConverter convertedNumber,int number)
-        {
-            if (convertedNumber.sign != 1)
-            {
-                Console.WriteLine(number + " in the " + convertedNumber.newBase + " numeral system =  -" + convertedNumber.covertedNumber);
-            }
-            else
-            {
-                Console.WriteLine(number + " in the " + convertedNumber.newBase + " numeral system = " + convertedNumber.covertedNumber);
-            }
->>>>>>> 64eab100493a289255a16e47bf771741751d31e7
         }
     }
 }
-

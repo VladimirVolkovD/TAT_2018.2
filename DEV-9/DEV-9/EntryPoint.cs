@@ -1,21 +1,32 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using System;
+using OpenQA.Selenium.Chrome;
+
 namespace DEV_9
 {
     /// <summary>
-    /// Calls all methods for all tested web pages
+    /// Calls all methods for all tested web pages.
     /// </summary>
     class EntryPoint
     {
-        static void Main(string[] args)
+        static readonly ChromeDriver _driver = new ChromeDriver();
+        static void Main()
         {
-            ChromeDriver driver = new ChromeDriver();
-            var logInPage = new LogInPage(driver, "YourEmail", "YourPassword");
-            logInPage.LogIn();
-
-            var messagePage = new MessagesPage(driver);
-            messagePage.ShowUnreadMessages();
-
-            driver.Quit();
+            try
+            {
+                var logInPage = new LogInPage(_driver, "YourLogin", "YourPassword");
+                logInPage.LogIn();
+                var messagePage = new MessagesPage(_driver);
+                messagePage.GetUnreadMessages();
+                messagePage.ShowMessages();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                _driver.Quit();
+            }
         }
     }
 }

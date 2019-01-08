@@ -1,17 +1,22 @@
 ﻿using OpenQA.Selenium;
 using System;
+using System.Collections.ObjectModel;
 
 namespace DEV_9
 {
     /// <summary>
-    /// Create object of messages page
+    /// Create object of messages page.
     /// </summary>
     class MessagesPage 
     {        
         private IWebDriver _driver;
-        IWebElement unreadMesseges;
-        
+        private IWebElement _unreadMesseges;
+        private ReadOnlyCollection<IWebElement>_messages;
 
+        /// <summary>
+        /// Class constructor.
+        /// </summary>
+        /// <param name="driver">WebDriver object.</param>
         public MessagesPage(IWebDriver driver)
         {           
             _driver = driver;
@@ -19,28 +24,34 @@ namespace DEV_9
         }
 
         /// <summary>
-        /// Finds unread messages
+        /// Finds unread messages.
         /// </summary>
         private void FindUnreadMessages()
         {
-            unreadMesseges = _driver.FindElement(Locators.MessagesPageLocators.UnreadMessage);
-            unreadMesseges.Click();
+            _unreadMesseges = _driver.FindElement(Locators.MessagesPageLocators.UnreadMessage);
+            _unreadMesseges.Click();
         }
 
         /// <summary>
-        /// Shows unread messages
+        /// Get unread messages.
         /// </summary>
-        public void ShowUnreadMessages()
+        public void GetUnreadMessages()
         {
             FindUnreadMessages();
-            IWebElement dialogElements = _driver.FindElement(Locators.MessagesPageLocators.DialogsLocator);
-            var messages = dialogElements.FindElements(Locators.MessagesPageLocators.Message);
+            var dialogElements = _driver.FindElement(Locators.MessagesPageLocators.DialogsLocator);
+            _messages = dialogElements.FindElements(Locators.MessagesPageLocators.Message);
+        }
 
-            foreach (var i in messages)
+        /// <summary>
+        /// Shows unread messages.
+        /// </summary>
+        public void ShowMessages()
+        {
+            foreach (var i in _messages)
             {
                 Console.WriteLine("\nFrom : " + i.FindElement(Locators.MessagesPageLocators.MessageName).Text);
-                Console.WriteLine("Message : "+ i.FindElement(Locators.MessagesPageLocators.MessageText).Text);
+                Console.WriteLine("Message : " + i.FindElement(Locators.MessagesPageLocators.MessageText).Text);
             }
-        }      
+        }
     }
 }

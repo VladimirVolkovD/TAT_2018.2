@@ -3,70 +3,40 @@
 namespace DEV_9
 {
     /// <summary>
-    /// Container for all locators
+    /// Container for all locators.
     /// </summary>
     static class Locators
     {
         /// <summary>
-        /// Container for login page locators
+        /// Container for login page locators.
         /// </summary>
         public static class LoginPageLocators
         {
-            public static string VkPageLocator
-            {
-                get { return "https://vk.com"; }
-            }
+            public static string VkPageLocator => "https://vk.com";
 
-            public static By EmailField
-            {
-                get { return By.Id("index_email"); }
-            }
+            public static By EmailField => By.Id("index_email");
 
-            public static By PasswordField
-            {
-                get { return By.Id("index_pass"); }
-            }
+            public static By PasswordField => By.Id("index_pass");
 
-            public static By LoginButton
-            {
-                get { return By.Id("index_login_button"); }
-            }
+            public static By LoginButton => By.Id("index_login_button");
         }
 
         /// <summary>
-        /// Container for messages page locators
+        /// Container for messages page locators.
         /// </summary>
         public static class MessagesPageLocators
         {
-            public static string MessagePage
-            {
-                get { return "https://vk.com/im"; }
-            }
+            public static string MessagePage => "https://vk.com/im";
 
-            public static By UnreadMessage
-            {
-                get { return By.Id("ui_rmenu_unread"); }
-            }
+            public static By UnreadMessage => By.Id("ui_rmenu_unread");
 
-            public static By DialogsLocator
-            {
-                get { return By.Id("im_dialogs"); }                
-            }        
-            
-            public static By Message
-            {
-                get { return By.ClassName("nim-dialog--cw"); }
-            }
+            public static By DialogsLocator => By.Id("im_dialogs");
 
-            public static By MessageName
-            {
-                get { return By.ClassName("nim-dialog--name"); }
-            }
+            public static By Message => By.ClassName("nim-dialog--cw");
 
-            public static By MessageText
-            {
-                get { return By.ClassName("nim-dialog--text-preview"); }
-            }
+            public static By MessageName => By.ClassName("nim-dialog--name");
+
+            public static By MessageText => By.ClassName("nim-dialog--text-preview");
         }
     }
 }

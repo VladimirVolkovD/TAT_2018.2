@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 
 namespace DEV_3
-{   
+{
     /// <summary> 
     /// This class converts decimal number in other numeral system.
     /// </summary>
@@ -36,12 +36,25 @@ namespace DEV_3
         }
 
         /// <summary> 
+<<<<<<< HEAD
         /// A method that creates a string that is a representation of a number in the new numeral system.
         /// </summary> 
         /// <returns>Value In New System.</returns>
         public string DecimalToOtherNumeralSystem()
         {            
             var valueInNewSystem = new StringBuilder();
+=======
+        /// Creates a string that is a representation of a number in the new numeral system.
+        /// </summary> 
+        /// <returns>Value In New System.</returns>
+        public string DecimalToOtherNumeralSystem()
+        {
+            if (newBase < 2 || newBase > 20)
+            {
+                throw new Exception("WrongBaseOfNumeralSystemException: Value of new numeral system must be between 2 and 20.");
+            }
+            StringBuilder valueInNewSystem = new StringBuilder();            
+>>>>>>> 64eab100493a289255a16e47bf771741751d31e7
             do
             {
                 var numberToAdd = _number % _newBase;
@@ -59,6 +72,7 @@ namespace DEV_3
 
             } while (0 != _number);
 
+<<<<<<< HEAD
             if (_negativeNumber)
             {
                 valueInNewSystem.Append('-');
@@ -66,5 +80,22 @@ namespace DEV_3
 
             return new string(valueInNewSystem.ToString().Reverse().ToArray());
         }   
+=======
+            covertedNumber = ReverseString(valueInNewSystem.ToString());            
+            return covertedNumber;
+        }
+
+        /// <summary>
+        /// Reverses the order of the elements in a  string.
+        /// </summary>
+        /// <param name="stringForReverse">String for reverse.</param>
+        /// <returns>Reversed string.</returns>
+        string ReverseString(string stringForReverse)
+        {
+            char[] reversedString = stringForReverse.ToCharArray();
+            Array.Reverse(reversedString);
+            return new string(reversedString);
+        }  
+>>>>>>> 64eab100493a289255a16e47bf771741751d31e7
     }
 }

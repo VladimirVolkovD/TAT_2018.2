@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace DEV_1
@@ -56,4 +56,8 @@ namespace DEV_1
             return maximumUniqueCharsCount;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 64eab100493a289255a16e47bf771741751d31e7

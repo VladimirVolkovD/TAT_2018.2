@@ -1,68 +1,70 @@
 using System;
+using System.Linq;
 using System.Text;
 
 namespace DEV_3
 {   
     /// <summary> 
-    /// This class converts decimal number in other numeral system
+    /// This class converts decimal number in other numeral system.
     /// </summary>
-    class NumeralSystemConverter
+    public class NumeralSystemConverter
     {
-        public int number;
-        public int newBase;
-        public int sign;
-        public string covertedNumber;       
+        private int _number;
+        private readonly int _newBase;
+        private readonly bool _negativeNumber;
+
+        private const int MaxRadix = 20;
+        private const int MinRadix = 2;
 
         /// <summary>
-        /// Class constructor for NumeralSystemConverter
+        /// Class constructor for NumeralSystemConverter.
         /// </summary>
-        /// <param name="number">number</param>
-        /// <param name="newBase">new base of numeral system</param>
+        /// <param name="number">Number.</param>
+        /// <param name="newBase">New base of numeral system.</param>
         public NumeralSystemConverter(int number,int newBase)
         {
-            sign = Math.Sign(number);
-            this.number =  Math.Abs(number);
-            this.newBase = newBase;
+            if (newBase >= MinRadix && newBase <= MaxRadix)
+            {
+                _negativeNumber = number < 0;
+                _number = Math.Abs(number);
+                _newBase = newBase;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException($"Wrong base of new numeral system.");
+            }
         }
 
         /// <summary> 
-        /// Method DecimalToOtherNumeralSystem
-        /// A method that creates a string that is a representation of a number in the new numeral system
+        /// A method that creates a string that is a representation of a number in the new numeral system.
         /// </summary> 
-        /// <returns>Value In New System</returns>
-        public void DecimalToOtherNumeralSystem()
+        /// <returns>Value In New System.</returns>
+        public string DecimalToOtherNumeralSystem()
         {            
-            StringBuilder valueInNewSystem = new StringBuilder();            
+            var valueInNewSystem = new StringBuilder();
             do
             {
-                int numberToAdd = number % newBase;
-                number = number / newBase;
+                var numberToAdd = _number % _newBase;
+                _number = _number / _newBase;
                 if (numberToAdd < 10)
                 {
-                    char tempCharSymbol = (char)(numberToAdd + '0');
+                    var tempCharSymbol = (char)(numberToAdd + '0');
                     valueInNewSystem.Append(tempCharSymbol.ToString());
                 }
                 else 
                 {
-                    char tempCharSymbol = (char)('A' + numberToAdd - 10);
+                    var tempCharSymbol = (char)('A' + numberToAdd - 10);
                     valueInNewSystem.Append(tempCharSymbol.ToString());
                 }
 
-            } while (0 != number);
+            } while (0 != _number);
 
-            covertedNumber = ReverseString(valueInNewSystem.ToString());
-        }       
+            if (_negativeNumber)
+            {
+                valueInNewSystem.Append('-');
+            }
 
-        /// <summary>
-        /// Reverses the order of the elements in a  string
-        /// </summary>
-        /// <param name="stringForReverse">string for reverse</param>
-        /// <returns></returns>
-        private string ReverseString(string stringForReverse)
-        {
-            char[] reversedString = stringForReverse.ToCharArray();
-            Array.Reverse(reversedString);
-            return new string(reversedString);
-        }  
+            return new string(valueInNewSystem.ToString().Reverse().ToArray());
+        }   
     }
 }

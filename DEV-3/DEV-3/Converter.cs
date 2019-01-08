@@ -16,10 +16,8 @@ namespace DEV_3
                 var number = int.Parse(args[0]);
                 var newBaseOfNumberSystem = int.Parse(args[1]);
                 var numeralSystemConverter = new NumeralSystemConverter(number, newBaseOfNumberSystem);
-                
                 Console.WriteLine("Number in decimal = {0} in the {1} numeral system  = {2}", number,
                     newBaseOfNumberSystem, numeralSystemConverter.DecimalToOtherNumeralSystem());
-
             }
             catch (IndexOutOfRangeException)
             {
@@ -33,8 +31,6 @@ namespace DEV_3
             {
                 Console.WriteLine(ex.Message);
             }
-
-            Console.ReadKey();
         }
     }
 }

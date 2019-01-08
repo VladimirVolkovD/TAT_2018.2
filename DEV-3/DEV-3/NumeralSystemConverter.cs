@@ -12,7 +12,6 @@ namespace DEV_3
         private int _number;
         private readonly int _newBase;
         private readonly bool _negativeNumber;
-
         private const int MaxRadix = 20;
         private const int MinRadix = 2;
 

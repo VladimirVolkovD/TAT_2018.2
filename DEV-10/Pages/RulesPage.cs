@@ -7,7 +7,7 @@ namespace Pages
     {
         /// <summary>Root radio button for login.</summary>
         [FindsBy(How = How.CssSelector, Using = "input#viewns_Z7_9HD6HG80NGMO80ABJ9NPD12001_\\3a form1\\3a conf")]
-        public IWebElement CheckRadioButton { get; set; }
+        public IWebElement CheckRadioButton;
 
         /// <summary>
         /// Click the check radio button.

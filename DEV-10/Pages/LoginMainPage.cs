@@ -7,26 +7,26 @@ namespace Pages
     /// Login page elements.
     /// </summary>
     public class LoginMainPage
-    {     
+    {
         /// <summary>LogIn text field.</summary>
         [FindsBy(How = How.CssSelector, Using = "input#login")]
-        public IWebElement Login { get; set; }
+        public IWebElement Login;
 
         /// <summary>Password text field.</summary>
         [FindsBy(How = How.CssSelector, Using = "#password")]
-        public IWebElement Password { get; set; }
+        public IWebElement Password;
 
         /// <summary>LogIn button.</summary>
         [FindsBy(How = How.ClassName, Using = "commandExButton")]
-        public IWebElement LogInButton { get; set; }
+        public IWebElement LogInButton;
 
         /// <summary>LogIn warning icon.</summary>
         [FindsBy(How = How.Id, Using = "login.errors")]
-        public IWebElement LogInWarIcon{ get; set; }
+        public IWebElement LogInWarIcon;
 
         /// <summary>Password warning icon.</summary>
         [FindsBy(How = How.Id, Using = "password.errors")]
-        public IWebElement PasswWarIcon { get; set; }
+        public IWebElement PasswWarIcon;
 
         /// <summary>
         /// Enter login in the login box.
